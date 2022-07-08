@@ -8,4 +8,11 @@ public class EmployeesPage extends BasePage {
     public EmployeesPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
+    //navigate to Employees Page
+    public void navigate_to_EmployeesPage_asPosManager(){
+        loginPage.loginPosManagerWithConfiguration();
+        moreMenu.click();
+        employeesMenu.click();
+    }
 }

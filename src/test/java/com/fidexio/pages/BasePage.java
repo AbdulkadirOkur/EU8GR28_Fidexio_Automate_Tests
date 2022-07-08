@@ -13,44 +13,6 @@ public class BasePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    //navigate methods to land on pages
-    public void navigateTo_CalendarPage_asPosManager(){
-        loginPage.loginPosManagerWithConfiguration();
-        moreMenu.click();
-        calendarMenu.click();
-    }
-
-    public void navigate_to_EmployeesPage_asPosManager(){
-        loginPage.loginPosManagerWithConfiguration();
-        moreMenu.click();
-        employeesMenu.click();
-    }
-
-    public void navigateTo_FleetPage_asPosManager(){
-        loginPage.loginPosManagerWithConfiguration();
-        moreMenu.click();
-        FleetMenu.click();
-    }
-
-    public void navigateTo_InventoryPage_asPosManager(){
-        loginPage.loginPosManagerWithConfiguration();
-        moreMenu.click();
-        inventoryMenu.click();
-    }
-
-    public void navigateToSalesPage_asSalesManager() {
-        loginPage.loginSalesManagerWithConfiguration();
-        moreMenu.click();
-        salesMenu.click();
-    }
-
-    public void navigateTo_SurveysPage_asPosManager(){
-        loginPage.loginPosManagerWithConfiguration();
-        moreMenu.click();
-        surveysMenu.click();
-    }
-
-
 
     //for getting current title
     public String getTitle(){

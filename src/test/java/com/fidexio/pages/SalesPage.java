@@ -12,6 +12,13 @@ public class SalesPage extends BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    //navigate to Sales Page
+    public void navigateTo_SalesPage_asSalesManager() {
+        loginPage.loginSalesManagerWithConfiguration();
+        moreMenu.click();
+        salesMenu.click();
+    }
+
     @FindBy(xpath = "//a[@data-menu='447']")
     public WebElement costumersMenu;
 }

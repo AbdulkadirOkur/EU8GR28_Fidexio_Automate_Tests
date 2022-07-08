@@ -13,6 +13,13 @@ public class FleetPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    //navigate to Fleet Page
+    public void navigateTo_FleetPage_asPosManager(){
+        loginPage.loginPosManagerWithConfiguration();
+        moreMenu.click();
+        FleetMenu.click();
+    }
+
     @FindBy(xpath = "//a[@data-menu='139']")
     public WebElement vehiclesMenu;
 

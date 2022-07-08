@@ -12,6 +12,12 @@ public class SurveysPage extends BasePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    //navigate to Surveys Page
+    public void navigateTo_SurveysPage_asPosManager(){
+        loginPage.loginPosManagerWithConfiguration();
+        moreMenu.click();
+        surveysMenu.click();
+    }
 
 
     @FindBy(xpath = "//a[@data-menu='476']")

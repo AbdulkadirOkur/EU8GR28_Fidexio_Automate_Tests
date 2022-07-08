@@ -9,4 +9,11 @@ public class CalendarPage extends BasePage {
     public CalendarPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+    //navigate to Calendar Page
+    public void navigateTo_CalendarPage_asPosManager(){
+        loginPage.loginPosManagerWithConfiguration();
+        moreMenu.click();
+        calendarMenu.click();
+    }
 }

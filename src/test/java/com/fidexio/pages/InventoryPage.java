@@ -12,6 +12,13 @@ public class InventoryPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    //navigate to Inventory Page
+    public void navigateTo_InventoryPage_asPosManager(){
+        loginPage.loginPosManagerWithConfiguration();
+        moreMenu.click();
+        inventoryMenu.click();
+    }
+
     @FindBy(xpath = "//a[@data-menu='378']")
     public WebElement productsMenu ;
 }

@@ -21,7 +21,7 @@ public class BasePage {
     public WebElement logoutLink;
 
     @FindBy(xpath = "//a[@data-menu='134']")
-    public WebElement FleetMenu;
+    public WebElement fleetMenu;
 
     @FindBy(xpath = "(//a[@data-toggle='dropdown'])[1]")
     public WebElement moreMenu;

@@ -16,3 +16,6 @@ Feature: Fidexio Login feature
       | Username                | Password     | UserID         |
       | salesmanager28@info.com | salesmanager | salesmanager28 |
       | posmanager28@info.com   | posmanager   | posmanager28   |
+
+
+

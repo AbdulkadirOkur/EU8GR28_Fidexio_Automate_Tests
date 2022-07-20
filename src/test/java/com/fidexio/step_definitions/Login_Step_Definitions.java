@@ -40,4 +40,9 @@ public class Login_Step_Definitions {
 
         Assert.assertTrue(actualTitle.equalsIgnoreCase(expectedInTitle));
     }
+
+    @Given("user is on the logged page of fidexio page")
+    public void userIsOnTheLoggedPageOfFidexioPage() {
+        loginPage.loginPosManagerWithConfiguration();
+    }
 }

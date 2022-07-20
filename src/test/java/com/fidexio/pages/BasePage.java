@@ -26,5 +26,8 @@ public class BasePage {
     @FindBy(xpath = "(//a[@data-toggle='dropdown'])[1]")
     public WebElement moreMenu;
 
+    @FindBy (xpath ="//a[@data-menu='347']")
+    public WebElement inventoryButton;
+
 
 }

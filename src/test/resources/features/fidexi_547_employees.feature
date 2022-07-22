@@ -17,7 +17,6 @@ Feature: Fidexio Employee Module Functionality
     When Pos Manager click on the import button
     Then Pos Manager should be able to land on the import a File page
 
-    @wip
   Scenario: TC-003 | AC #1 | Verify that the "Left Arrow - (<)" button works as expected at the "Employees" stage.
     When Pos Manager click on the Left Arrow - (<) button
     Then PosManager should be able to click on the Left Arrow - (<) button.

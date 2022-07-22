@@ -34,4 +34,10 @@ public class EmployeesPage {
     @FindBy(xpath = "//button[@class='fa fa-chevron-right btn btn-icon o_pager_next']")
     public WebElement rightArrowButton;
 
+    @FindBy(xpath = "//button[@class='btn btn-icon fa fa-lg fa-th-large o_cp_switch_kanban']")
+    public WebElement inactiveKanbanButton;
+
+    @FindBy(xpath = "//button[@class='btn btn-icon fa fa-lg fa-list-ul o_cp_switch_list']")
+    public WebElement inactiveListButton;
+
 }

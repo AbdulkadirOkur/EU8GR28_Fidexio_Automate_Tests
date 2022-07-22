@@ -3,15 +3,19 @@ package com.fidexio.step_definitions;
 import com.fidexio.pages.EmployeesPage;
 import com.fidexio.pages.LoginPage;
 import com.fidexio.utilities.BrowserUtilities;
+import com.fidexio.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class US_77_FIDEXI_547_Employees_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
     EmployeesPage employeesPage = new EmployeesPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
@@ -42,7 +46,7 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager click on the import button")
     public void pos_manager_click_on_the_import_button() {
 
-        BrowserUtilities.waitForVisibility(employeesPage.importButton,10);
+        BrowserUtilities.waitForVisibility(employeesPage.importButton, 10);
         employeesPage.importButton.click();
 
     }
@@ -53,14 +57,14 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
         BrowserUtilities.waitForVisibility(employeesPage.importAFileText, 10);
         String expectedText = "Import a File";
         String actualText = employeesPage.importAFileText.getText();
-        Assert.assertEquals("The text is not as expected!!!",expectedText, actualText);
+        Assert.assertEquals("The text is not as expected!!!", expectedText, actualText);
 
     }
 
     @When("Pos Manager click on the Left Arrow - \\(<) button")
     public void pos_manager_click_on_the_left_arrow_button() {
 
-        BrowserUtilities.waitForVisibility(employeesPage.leftArrowButton,10);
+        BrowserUtilities.waitForVisibility(employeesPage.leftArrowButton, 10);
         employeesPage.leftArrowButton.click();
 
     }
@@ -75,7 +79,7 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager click on the Right Arrow - \\(>) button.")
     public void pos_manager_click_on_the_right_arrow_button() {
 
-        BrowserUtilities.waitForVisibility(employeesPage.rightArrowButton,10);
+        BrowserUtilities.waitForVisibility(employeesPage.rightArrowButton, 10);
         employeesPage.rightArrowButton.click();
 
     }
@@ -90,10 +94,18 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager click on the Kanban button")
     public void pos_manager_click_on_the_kanban_button() {
 
+        //Because the Kanban button is selected by default, I click on the List button first.
+        BrowserUtilities.waitForVisibility(employeesPage.inactiveListButton, 10);
+        employeesPage.inactiveListButton.click();
+        wait.until(ExpectedConditions.urlContains("list"));
+        employeesPage.inactiveKanbanButton.click();
+
     }
 
     @Then("Pos Manager should be able to click on the Kanban button and should see the list of items in the Kanban style")
     public void pos_manager_should_be_able_to_click_on_the_kanban_button_and_should_see_the_list_of_items_in_the_kanban_style() {
+
+        Assert.assertTrue(employeesPage.inactiveKanbanButton.isEnabled());
 
     }
 

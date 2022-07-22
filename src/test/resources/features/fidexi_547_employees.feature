@@ -9,7 +9,6 @@ Feature: Fidexio Employee Module Functionality
   Background: Pos Manager logs into the application and clicks on the Employees module.
     Given Pos Manager logged in to the homepage and clicked on the Employees module
 
-    @wip
   Scenario: TC-001 | AC #1 | Verify that the "Create" button in the "Employees" stage works as expected.
     When Pos Manager click on the Create button
     Then Pos Manager should be able to land on the new employee information page

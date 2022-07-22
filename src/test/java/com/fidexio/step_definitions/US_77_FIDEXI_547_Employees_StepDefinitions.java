@@ -42,10 +42,18 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager click on the import button")
     public void pos_manager_click_on_the_import_button() {
 
+        BrowserUtilities.waitForVisibility(employeesPage.importButton,10);
+        employeesPage.importButton.click();
+
     }
 
     @Then("Pos Manager should be able to land on the import a File page")
     public void pos_manager_should_be_able_to_land_on_the_import_a_file_page() {
+
+        BrowserUtilities.waitForVisibility(employeesPage.importAFileText, 10);
+        String expectedText = "Import a File";
+        String actualText = employeesPage.importAFileText.getText();
+        Assert.assertEquals("The text is not as expected!!!",expectedText, actualText);
 
     }
 

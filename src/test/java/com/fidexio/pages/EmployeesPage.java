@@ -22,4 +22,10 @@ public class EmployeesPage {
     @FindBy(xpath = "//div[@class='o_form_sheet']")
     public WebElement newEmployeesFormSheet;
 
+    @FindBy(xpath = "//button[@class='btn btn-sm btn-default o_button_import']")
+    public WebElement importButton;
+
+    @FindBy(xpath = "//li[.='Import a File']")
+    public WebElement importAFileText;
+
 }

@@ -1,30 +1,41 @@
 package com.fidexio.step_definitions;
 
+import com.fidexio.pages.EmployeesPage;
 import com.fidexio.pages.LoginPage;
-import com.fidexio.utilities.ConfigurationReader;
+import com.fidexio.utilities.BrowserUtilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class US_77_FIDEXI_547_Employees_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
+    EmployeesPage employeesPage = new EmployeesPage();
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
 
         loginPage.navigateTo_LoginPage();
         loginPage.loginPosManagerWithConfiguration();
+        BrowserUtilities.waitForVisibility(employeesPage.employeesModuleButton, 10);
+        employeesPage.employeesModuleButton.click();
 
     }
 
     @When("Pos Manager click on the Create button")
     public void pos_manager_click_on_the_create_button() {
 
+        BrowserUtilities.waitForVisibility(employeesPage.createButton, 10);
+        employeesPage.createButton.click();
+
     }
 
     @Then("Pos Manager should be able to land on the new employee information page")
     public void pos_manager_should_be_able_to_land_on_the_new_employee_information_page() {
+
+        BrowserUtilities.waitForVisibility(employeesPage.newEmployeesFormSheet, 10);
+        Assert.assertTrue(employeesPage.newEmployeesFormSheet.isDisplayed());
 
     }
 

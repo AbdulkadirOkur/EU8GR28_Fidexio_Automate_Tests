@@ -4,10 +4,13 @@ import com.fidexio.pages.EmployeesPage;
 import com.fidexio.pages.LoginPage;
 import com.fidexio.utilities.BrowserUtilities;
 import com.fidexio.utilities.Driver;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,6 +19,7 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     LoginPage loginPage = new LoginPage();
     EmployeesPage employeesPage = new EmployeesPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+    Faker faker = new Faker();
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
@@ -126,6 +130,11 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager enters employee credentials")
     public void pos_manager_enters_employee_credentials() {
 
+        Actions actions = new Actions(Driver.getDriver());
+
+        employeesPage.employeesNameInput.sendKeys(faker.name().fullName());
+        employeesPage.workAddressDropdown.sendKeys(Keys.DOWN);
+        employeesPage.workAddressDropdown.sendKeys(Keys.RETURN);
     }
 
     @When("Pos Manager click on the Save button")

@@ -40,4 +40,28 @@ public class EmployeesPage {
     @FindBy(xpath = "//button[@class='btn btn-icon fa fa-lg fa-list-ul o_cp_switch_list']")
     public WebElement inactiveListButton;
 
+    @FindBy(id = "o_field_input_684")
+    public WebElement employeesNameInput;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[1]")
+    public WebElement jobStatusDropdown;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[2]")
+    public WebElement workAddressDropdown;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[3]")
+    public WebElement departmentDropdown;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[4]")
+    public WebElement jobPositionDropdown;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[5]")
+    public WebElement managerDropdown;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[6]")
+    public WebElement coachDropdown;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[7]")
+    public WebElement workingHoursDropdown;
+
 }

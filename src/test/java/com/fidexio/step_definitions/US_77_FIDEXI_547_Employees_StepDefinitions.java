@@ -1,13 +1,20 @@
 package com.fidexio.step_definitions;
 
+import com.fidexio.pages.LoginPage;
+import com.fidexio.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class US_77_FIDEXI_547_Employees_StepDefinitions {
 
+    LoginPage loginPage = new LoginPage();
+
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
+
+        loginPage.navigateTo_LoginPage();
+        loginPage.loginPosManagerWithConfiguration();
 
     }
 

@@ -86,5 +86,14 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
 
     }
 
+    @When("PosManager click on Employees button")
+    public void pos_manager_click_on_employees_button() {
+
+    }
+
+    @Then("PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module")
+    public void pos_manager_should_be_able_to_land_on_the_employees_stage_and_should_be_able_to_see_the_created_employee_listed_after_clicking_the_employees_module() {
+
+    }
 
 }

@@ -112,10 +112,14 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager click on the List button")
     public void pos_manager_click_on_the_list_button() {
 
+        employeesPage.inactiveListButton.click();
+
     }
 
     @Then("Pos Manager should be able to click on the List button and should see the list of items in the List style")
     public void pos_manager_should_be_able_to_click_on_the_list_button_and_should_see_the_list_of_items_in_the_list_style() {
+
+        Assert.assertTrue(employeesPage.inactiveListButton.isEnabled());
 
     }
 

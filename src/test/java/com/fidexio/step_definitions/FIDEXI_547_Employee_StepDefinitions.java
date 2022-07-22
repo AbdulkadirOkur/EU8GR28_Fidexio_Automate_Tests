@@ -31,6 +31,25 @@ public class FIDEXI_547_Employee_StepDefinitions {
 
     }
 
+    @When("Pos Manager click on the Left Arrow - \\(<) button")
+    public void pos_manager_click_on_the_left_arrow_button() {
+
+    }
+
+    @Then("PosManager should be able to click on the Left Arrow - \\(<) button.")
+    public void pos_manager_should_be_able_to_click_on_the_left_arrow_button() {
+
+    }
+
+    @When("Pos Manager click on the Right Arrow - \\(>) button.")
+    public void pos_manager_click_on_the_right_arrow_button() {
+
+    }
+
+    @Then("Pos Manager should be able to click on the Right Arrow - \\(>) button.")
+    public void pos_manager_should_be_able_to_click_on_the_right_arrow_button() {
+
+    }
 
 
 }

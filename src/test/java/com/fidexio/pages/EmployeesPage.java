@@ -28,4 +28,10 @@ public class EmployeesPage {
     @FindBy(xpath = "//li[.='Import a File']")
     public WebElement importAFileText;
 
+    @FindBy(xpath = "//button[@class='fa fa-chevron-left btn btn-icon o_pager_previous']")
+    public WebElement leftArrowButton;
+
+    @FindBy(xpath = "//button[@class='fa fa-chevron-right btn btn-icon o_pager_next']")
+    public WebElement rightArrowButton;
+
 }

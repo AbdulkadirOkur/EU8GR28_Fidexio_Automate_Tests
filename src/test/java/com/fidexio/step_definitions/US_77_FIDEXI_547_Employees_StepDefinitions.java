@@ -60,20 +60,30 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     @When("Pos Manager click on the Left Arrow - \\(<) button")
     public void pos_manager_click_on_the_left_arrow_button() {
 
+        BrowserUtilities.waitForVisibility(employeesPage.leftArrowButton,10);
+        employeesPage.leftArrowButton.click();
+
     }
 
     @Then("PosManager should be able to click on the Left Arrow - \\(<) button.")
     public void pos_manager_should_be_able_to_click_on_the_left_arrow_button() {
+
+        Assert.assertTrue(employeesPage.leftArrowButton.isEnabled());
 
     }
 
     @When("Pos Manager click on the Right Arrow - \\(>) button.")
     public void pos_manager_click_on_the_right_arrow_button() {
 
+        BrowserUtilities.waitForVisibility(employeesPage.rightArrowButton,10);
+        employeesPage.rightArrowButton.click();
+
     }
 
     @Then("Pos Manager should be able to click on the Right Arrow - \\(>) button.")
     public void pos_manager_should_be_able_to_click_on_the_right_arrow_button() {
+
+        Assert.assertTrue(employeesPage.rightArrowButton.isEnabled());
 
     }
 

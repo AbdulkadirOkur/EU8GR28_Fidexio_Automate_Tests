@@ -40,28 +40,52 @@ public class EmployeesPage {
     @FindBy(xpath = "//button[@class='btn btn-icon fa fa-lg fa-list-ul o_cp_switch_list']")
     public WebElement inactiveListButton;
 
-    @FindBy(id = "o_field_input_684")
+    @FindBy(id = "o_field_input_680")
     public WebElement employeesNameInput;
 
-    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[1]")
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[1]/input")
     public WebElement jobStatusDropdown;
 
-    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[2]")
+    @FindBy(xpath = "(//li[@class='ui-menu-item'])[1]")
+    public WebElement jobStatusDropdownSelect;
+
+    @FindBy(xpath = "//span[.='Trainer']")
+    public WebElement jobStatusDropdownAfterSelect;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[2]/input")
     public WebElement workAddressDropdown;
+
+    @FindBy(linkText = "&*&*)_( (co2py), James")
+    public WebElement workAddressDropdownSelect;
 
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[3]")
     public WebElement departmentDropdown;
 
+    @FindBy(xpath = "//li[@class='ui-menu-item'][.='Professional Services']")
+    public WebElement departmentDropdownSelect;
+
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[4]")
     public WebElement jobPositionDropdown;
+
+    @FindBy(xpath = "//li[@class='ui-menu-item'][.='Chief Technical Officer']")
+    public WebElement jobPositionDropdownSelect;
 
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[5]")
     public WebElement managerDropdown;
 
+    @FindBy(xpath = "//li[@class='ui-menu-item'][.='Demo User']")
+    public WebElement managerDropdownSelect;
+
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[6]")
     public WebElement coachDropdown;
 
+    @FindBy(xpath = "//li[.='EventsCRM_Manager'][@id='ui-id-321']/a")
+    public WebElement coachDropdownSelect;
+
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[7]")
     public WebElement workingHoursDropdown;
+
+    @FindBy(xpath = "//li[@class='ui-menu-item'][.='Standard 35 Hours/Week']")
+    public WebElement workingHoursDropdownSelect;
 
 }

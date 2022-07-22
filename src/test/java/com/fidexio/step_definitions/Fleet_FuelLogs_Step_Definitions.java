@@ -31,7 +31,6 @@ public class Fleet_FuelLogs_Step_Definitions {
 
         fleetPage.vehiclesFuelLogsMenu.click();
 
-
     }
 
     @And("user clicks Create Button")

@@ -1,12 +1,9 @@
 package com.fidexio.pages;
 
-import com.fidexio.step_definitions.US_77_Employees_StepDefinitions;
 import com.fidexio.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import javax.xml.xpath.XPath;
 
 public class EmployeesPage {
 
@@ -205,8 +202,8 @@ public class EmployeesPage {
     @FindBy(xpath = "//div[@class='o_thread_message_content']//p")
     public WebElement employeeCreatedMessage;
 
-    @FindBy(xpath = "(//span[contains(text(),'Sherie Kuhic')])")
-    public WebElement employeeAfterCreatedAtEmployeePage;
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]")
+    public WebElement allCreatedEmployees;
 
 
 

@@ -19,7 +19,9 @@ public class US_77_Employees_StepDefinitions {
     LoginPage loginPage = new LoginPage();
     EmployeesPage employeesPage = new EmployeesPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+
     Faker faker = new Faker();
+    String employeeName = faker.name().fullName();
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
@@ -133,7 +135,6 @@ public class US_77_Employees_StepDefinitions {
     @When("Pos Manager enters employee credentials at Work information tab")
     public void pos_manager_enters_employee_credentials_at_work_information_tab() {
 
-        String employeeName = faker.name().fullName();
         employeesPage.employeesNameInput.sendKeys(employeeName);
 
         employeesPage.jobStatusDropdown.click();
@@ -260,19 +261,14 @@ public class US_77_Employees_StepDefinitions {
     @Then("PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module")
     public void pos_manager_should_be_able_to_land_on_the_employees_stage_and_should_be_able_to_see_the_created_employee_listed_after_clicking_the_employees_module() {
 
-        if (employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed()) {
-            Assert.assertTrue(employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed());
-            System.out.println("Employee ID created succesfully!!!");
-        } else if (!(employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed())) {
-            employeesPage.leftArrowButton.click();
-            if (employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed()) {
-                Assert.assertTrue(employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed());
-                System.out.println("Employee ID created succesfully!!!");
-            } else {
-                System.out.println("Employee ID cannot created succesfully!!!");
-            }
+        String allEmployeeNamesAstext = employeesPage.allCreatedEmployees.getText();
+
+        if (allEmployeeNamesAstext.equals(employeeName)) {
+            String expectedEmployeeName = employeeName;
+            String actualEmployeeName = Driver.getDriver().getTitle();
+           // System.out.println("Employee created successfully!");
+        }else if (!(allEmployeeNamesAstext.contains(employeeName))){
+            System.out.println("Continue");
         }
-
     }
-
 }

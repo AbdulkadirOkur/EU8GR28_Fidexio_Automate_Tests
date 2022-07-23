@@ -128,7 +128,7 @@ public class US_77_Employees_StepDefinitions {
 
     }
 
-    @When("Pos Manager enters employee credentials")
+    @When("Pos Manager enters employee credentials at Work information tab")
     public void pos_manager_enters_employee_credentials_at_work_information_tab() {
 
         employeesPage.employeesNameInput.sendKeys(faker.name().fullName());
@@ -165,6 +165,38 @@ public class US_77_Employees_StepDefinitions {
         employeesPage.workPhone.sendKeys(faker.phoneNumber().phoneNumber());
 
         employeesPage.otherInformation.sendKeys(faker.lorem().characters());
+
+    }
+
+    @When("Pos Manager enters employee credentials at Private information tab")
+    public void pos_manager_enters_employee_credentials_at_private_information_tab() {
+
+        employeesPage.privateInformationTab.click();
+
+        employeesPage.nationality.click();
+        employeesPage.nationalitySelect.click();
+
+        employeesPage.identificationNo.sendKeys(faker.idNumber().valid());
+
+        employeesPage.passportNo.sendKeys(faker.idNumber().invalid());
+
+        employeesPage.bankAccountNumber.click();
+        employeesPage.createAndEditBankAccountNumber.click();
+        employeesPage.enterAccountNumberInput.sendKeys(faker.numerify("####-####-####-####"));
+        employeesPage.bankDropdown.click();
+        employeesPage.bankDropdownSelect.click();
+        employeesPage.abaRouting.sendKeys(faker.numerify("#######"));
+        employeesPage.createBankAccountSaveButton.click();
+
+        employeesPage.privateAddressDropdown.click();
+        employeesPage.privateAddressSelect.click();
+
+
+
+    }
+
+    @When("Pos Manager enter employee credentials at HR setting tab")
+    public void pos_manager_enter_employee_credentials_at_hr_setting_tab() {
 
     }
 

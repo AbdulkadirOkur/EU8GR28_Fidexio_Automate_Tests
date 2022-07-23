@@ -1,5 +1,6 @@
 package com.fidexio.pages;
 
+import com.fidexio.step_definitions.US_77_Employees_StepDefinitions;
 import com.fidexio.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -103,8 +104,48 @@ public class EmployeesPage {
     @FindBy(xpath = "//textarea[@placeholder='Other Information ...']")
     public WebElement otherInformation;
 
-    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
-    public WebElement saveButton;
+    @FindBy(xpath = "//a[.='Private Information']")
+    public WebElement privateInformationTab;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[8]")
+    public WebElement nationality;
+
+    @FindBy(xpath = "//a[contains(text(), 'Albania')]")
+    public WebElement nationalitySelect;
+
+    @FindBy(xpath = "//input[@name='identification_id']")
+    public WebElement identificationNo;
+
+    @FindBy(xpath = "//input[@name='passport_id']")
+    public WebElement passportNo;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[9]")
+    public WebElement bankAccountNumber;
+
+    @FindBy(xpath = "(//a[.='Create and Edit...'])[1]")
+    public WebElement createAndEditBankAccountNumber;
+
+    @FindBy(xpath = "//input[@name='acc_number']")
+    public WebElement enterAccountNumberInput;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[13]")
+    public WebElement bankDropdown;
+
+    @FindBy(xpath = "//a[contains(text(),'12323487345645')]")
+    public WebElement bankDropdownSelect;
+
+    @FindBy(xpath = "//input[@name='aba_routing']")
+    public WebElement abaRouting;
+
+    @FindBy(xpath = "//button[@class='btn btn-sm btn-primary']//span[contains(text(), 'Save')]")
+    public WebElement createBankAccountSaveButton;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[10]")
+    public WebElement privateAddressDropdown;
+
+    @FindBy(xpath = "//a[contains(text(),'&*&*)_( (co2py), James')]")
+    public WebElement privateAddressSelect;
+
 
 
 }

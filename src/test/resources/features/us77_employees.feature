@@ -1,3 +1,4 @@
+@US_77
 Feature: Fidexio Employee Module Functionality
 
   User Story | AC #1 | Description: As a Pos Manager, i should be able to create and edit a new employee from "Employees" module.
@@ -33,13 +34,10 @@ Feature: Fidexio Employee Module Functionality
     When Pos Manager click on the List button
     Then Pos Manager should be able to click on the List button and should see the list of items in the List style
 
-@wip2
   Scenario: TC-007 | AC #2 | Verify that the "Employee created" message appears under full profile.
     When Pos Manager click on the Create button
     And Pos Manager enters employee credentials at Work information tab
     And Pos Manager enters employee credentials at Private information tab
-
-  Scenario: other thing
     And Pos Manager enter employee credentials at HR setting tab
     And Pos Manager click on the Save button
     Then PosManager should be able to click on the Save button and should be able to create a new Employee id with the Employee created message

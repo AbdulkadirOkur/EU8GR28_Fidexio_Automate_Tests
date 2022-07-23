@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import javax.xml.xpath.XPath;
+
 public class EmployeesPage {
 
     public EmployeesPage(){
@@ -175,6 +177,36 @@ public class EmployeesPage {
 
     @FindBy(xpath = "//button[@accesskey='a']")
     public WebElement editButton;
+
+    @FindBy(linkText = "HR Settings")
+    public WebElement hrSettingTab;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown'])[12]")
+    public WebElement relatedUserDropdown;
+
+    @FindBy(xpath = "(////a[.='Administrator']")
+    public WebElement relatedUserDropdownSelect;
+
+    @FindBy(xpath = "//input[@name='medic_exam']")
+    public WebElement medicalExamDropdown;
+
+    @FindBy(xpath = "//input[@name='vehicle']")
+    public WebElement companVehicleInput;
+
+    @FindBy(xpath = "//input[@name='vehicle_distance']")
+    public WebElement vehicleDistanceInput;
+
+    @FindBy(xpath = "//input[@name'barcode']")
+    public WebElement badgeId;
+
+    @FindBy(xpath = "//div[@name='manual_attendance']//input")
+    public WebElement manualAttandenceCheckbox;
+
+    @FindBy(xpath = "//div[@class='o_thread_message_content']//p")
+    public WebElement employeeCreatedMessage;
+
+    @FindBy(xpath = "(//span[contains(text(),'Sherie Kuhic')])")
+    public WebElement employeeAfterCreatedAtEmployeePage;
 
 
 

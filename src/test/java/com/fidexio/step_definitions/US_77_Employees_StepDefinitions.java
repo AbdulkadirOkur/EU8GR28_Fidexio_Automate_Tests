@@ -14,8 +14,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Date;
-
 public class US_77_Employees_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
@@ -135,7 +133,8 @@ public class US_77_Employees_StepDefinitions {
     @When("Pos Manager enters employee credentials at Work information tab")
     public void pos_manager_enters_employee_credentials_at_work_information_tab() {
 
-        employeesPage.employeesNameInput.sendKeys(faker.name().fullName());
+        String employeeName = faker.name().fullName();
+        employeesPage.employeesNameInput.sendKeys(employeeName);
 
         employeesPage.jobStatusDropdown.click();
         employeesPage.jobStatusDropdownSelect.click();
@@ -152,7 +151,7 @@ public class US_77_Employees_StepDefinitions {
 
         employeesPage.managerDropdown.click();
         employeesPage.managerDropdownSelect.click();
-        wait.until(ExpectedConditions.attributeContains(employeesPage.managerDropdownSelect,"id","ui-id"));
+        wait.until(ExpectedConditions.attributeContains(employeesPage.managerDropdownSelect, "id", "ui-id"));
 
         employeesPage.coachDropdown.click();
         employeesPage.coachDropdownSelect.click();
@@ -221,25 +220,58 @@ public class US_77_Employees_StepDefinitions {
     @When("Pos Manager enter employee credentials at HR setting tab")
     public void pos_manager_enter_employee_credentials_at_hr_setting_tab() {
 
+        employeesPage.editButton.click();
+        employeesPage.hrSettingTab.click();
+        employeesPage.relatedUserDropdownSelect.sendKeys(Keys.BACK_SPACE);
+
+        employeesPage.medicalExamDropdown.sendKeys("01/07/2022");
+
+        employeesPage.companVehicleInput.sendKeys("Mercedes-Benz AMG C63 S");
+
+        employeesPage.vehicleDistanceInput.sendKeys("10");
+
+        employeesPage.badgeId.sendKeys("112233445");
+
+        employeesPage.manualAttandenceCheckbox.click();
+
     }
 
     @When("Pos Manager click on the Save button")
     public void pos_manager_click_on_the_save_button() {
+
+        employeesPage.saveButton.click();
 
     }
 
     @Then("PosManager should be able to click on the Save button and should be able to create a new Employee id with the Employee created message")
     public void pos_manager_should_be_able_to_click_on_the_save_button_and_should_be_able_to_create_a_new_employee_id_with_the_employee_created_message() {
 
+        Assert.assertTrue(employeesPage.employeeCreatedMessage.isDisplayed());
+
     }
 
     @When("PosManager click on Employees button")
     public void pos_manager_click_on_employees_button() {
 
+        employeesPage.employeesModuleButton.click();
+
     }
 
     @Then("PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module")
     public void pos_manager_should_be_able_to_land_on_the_employees_stage_and_should_be_able_to_see_the_created_employee_listed_after_clicking_the_employees_module() {
+
+        if (employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed()) {
+            Assert.assertTrue(employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed());
+            System.out.println("Employee ID created succesfully!!!");
+        } else if (!(employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed())) {
+            employeesPage.leftArrowButton.click();
+            if (employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed()) {
+                Assert.assertTrue(employeesPage.employeeAfterCreatedAtEmployeePage.isDisplayed());
+                System.out.println("Employee ID created succesfully!!!");
+            } else {
+                System.out.println("Employee ID cannot created succesfully!!!");
+            }
+        }
 
     }
 

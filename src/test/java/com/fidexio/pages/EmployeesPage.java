@@ -122,7 +122,7 @@ public class EmployeesPage {
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[9]")
     public WebElement bankAccountNumber;
 
-    @FindBy(xpath = "(//a[.='Create and Edit...'])[1]")
+    @FindBy(xpath = "(//a[.='Create and Edit...'])[7]")
     public WebElement createAndEditBankAccountNumber;
 
     @FindBy(xpath = "//input[@name='acc_number']")
@@ -145,6 +145,36 @@ public class EmployeesPage {
 
     @FindBy(xpath = "//a[contains(text(),'&*&*)_( (co2py), James')]")
     public WebElement privateAddressSelect;
+
+    @FindBy(xpath = "//select[@name='gender']")
+    public WebElement genderDropdown;
+
+    @FindBy(xpath = "//select[@name='marital']")
+    public WebElement maritalStatusDropdown;
+
+    @FindBy(xpath = "//input[@name='birthday']")
+    public WebElement dateOfBirth;
+
+    @FindBy(xpath = "//input[@name='children']")
+    public WebElement numberOfChildren;
+
+    @FindBy(xpath = "//input[@name='place_of_birth']")
+    public WebElement placeOfBirth;
+
+    @FindBy(xpath = "//input[@name='visa_no']")
+    public WebElement visaNo;
+
+    @FindBy(xpath = "//input[@name='visa_expire']")
+    public WebElement visaExpireDate;
+
+    @FindBy(xpath = "//input[@name='permit_no']")
+    public WebElement workPermitNo;
+
+    @FindBy(xpath = "//button[@accesskey='s'][@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//button[@accesskey='a']")
+    public WebElement editButton;
 
 
 

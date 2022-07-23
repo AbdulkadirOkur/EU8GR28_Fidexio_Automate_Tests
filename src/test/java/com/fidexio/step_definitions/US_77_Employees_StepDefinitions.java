@@ -9,8 +9,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Date;
 
 public class US_77_Employees_StepDefinitions {
 
@@ -188,10 +192,29 @@ public class US_77_Employees_StepDefinitions {
         employeesPage.abaRouting.sendKeys(faker.numerify("#######"));
         employeesPage.createBankAccountSaveButton.click();
 
+        Select selectGender = new Select(employeesPage.genderDropdown);
+        selectGender.selectByVisibleText("Female");
+
+        Select selectMaritalStatus = new Select(employeesPage.maritalStatusDropdown);
+        selectMaritalStatus.selectByVisibleText("Single");
+
+        employeesPage.dateOfBirth.sendKeys("01/01/1990");
+        employeesPage.saveButton.click();
+        employeesPage.editButton.click();
+
         employeesPage.privateAddressDropdown.click();
         employeesPage.privateAddressSelect.click();
 
+        employeesPage.numberOfChildren.sendKeys(faker.numerify("#"));
 
+        employeesPage.placeOfBirth.sendKeys(faker.address().cityName());
+
+        employeesPage.visaNo.sendKeys(faker.business().creditCardNumber());
+
+        employeesPage.workPermitNo.sendKeys(faker.numerify("###########"));
+
+        employeesPage.visaExpireDate.sendKeys("01/01/2030");
+        employeesPage.saveButton.click();
 
     }
 

@@ -33,14 +33,10 @@ Feature: Fidexio Employee Module Functionality
     When Pos Manager click on the List button
     Then Pos Manager should be able to click on the List button and should see the list of items in the List style
 
-
+@wip2
   Scenario: TC-007 | AC #2 | Verify that the "Employee created" message appears under full profile.
     When Pos Manager click on the Create button
     And Pos Manager enters employee credentials at Work information tab
-
-  @wip2
-  Scenario: something
-    When Pos Manager click on the Create button
     And Pos Manager enters employee credentials at Private information tab
 
   Scenario: other thing

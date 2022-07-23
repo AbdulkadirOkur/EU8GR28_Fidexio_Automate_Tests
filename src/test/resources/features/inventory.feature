@@ -139,6 +139,7 @@ Feature Fidexio inventory feature
           And user clicks to product name box
           And user enter "name" of product
           And user clicks to save button
+          And user clicks to products button
           And user clicks to search box
           And user enter product name to search box
           Then user sees product name on the product list

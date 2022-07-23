@@ -12,7 +12,9 @@ public class InventoryPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-
+    @FindBy (xpath = "//a[@data-menu=347]")
+    public WebElement inventoryButton;
+)
     @FindBy(xpath = "//a[@data-action-id='521']")
     public WebElement productsButton;
 
@@ -30,6 +32,72 @@ public class InventoryPage extends BasePage{
 
     @FindBy(xpath = "//button[@accesskey='k']")
     public WebElement kanbanListButton;
+
+    @FindBy(xpath = "//button[@accesskey='l']")
+    public WebElement ListButton;
+
+    @FindBy (xpath = "//span[@class='o_pager_value']")
+    public WebElement listOrder;
+
+    @FindBy(xpath = "//div[@class='o_kanban_view o_kanban_ungrouped']")
+    public WebElement displayKanbanList ;
+
+    @FindBy (xpath = "//div[@class='table-responsive']")
+    public WebElement displayListType;
+
+    @FindBy (xpath = "//input[@name='name']")
+    public WebElement nameBox;
+
+    @FindBy (xpath = "//span[@name='name']")
+    public WebElement displayName;
+
+
+    @FindBy (xpath = "//select[@name='type']")
+    public WebElement productTypeDropdown;
+
+    @FindBy(xpath = "//button[@accesskey='s']")
+    public WebElement saveButton;
+
+    @FindBy (xpath = "//span[text()='Consumable']")
+    public WebElement consumableText;
+
+    @FindBy (xpath = "//span[text()='Service']")
+    public WebElement serviceText;
+
+    @FindBy (xpath = "//span[text()='Stockable Product']")
+    public WebElement stockableProductText;
+
+    @FindBy (xpath = "//div[@name='list_price']")
+    public WebElement salesPriceBox;
+
+    @FindBy (xpath = "//div[@name='standard_price']")
+    public WebElement costBox;
+
+    @FindBy (xpath = "//span[@name='list_price']")
+    public WebElement displaysalesPrice;
+
+    @FindBy (xpath = "//span[@name='standard_price']")
+    public WebElement displayCost;
+
+    @FindBy (xpath = "//input[@name='barcode']")
+    public WebElement barcodeBox;
+
+    @FindBy (xpath = "//span[@name='barcode']")
+    public WebElement displayBarcode;
+
+    @FindBy (xpath = "//span[@title='Edit']")
+    public WebElement pictureEditButton;
+
+    @FindBy (xpath = "//img[@name='image_medium']")
+    public WebElement displayPicture;
+
+    @FindBy (xpath = "//input[@class='o_searchview_input']")
+    public WebElement searchBox;
+
+
+
+
+
 
 
 

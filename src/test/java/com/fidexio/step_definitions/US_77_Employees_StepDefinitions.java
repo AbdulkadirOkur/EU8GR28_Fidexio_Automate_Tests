@@ -9,19 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class US_77_FIDEXI_547_Employees_StepDefinitions {
+public class US_77_Employees_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
     EmployeesPage employeesPage = new EmployeesPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
     Faker faker = new Faker();
-    Actions actions = new Actions(Driver.getDriver());
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
@@ -133,13 +129,13 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     }
 
     @When("Pos Manager enters employee credentials")
-    public void pos_manager_enters_employee_credentials() {
+    public void pos_manager_enters_employee_credentials_at_work_information_tab() {
 
         employeesPage.employeesNameInput.sendKeys(faker.name().fullName());
 
         employeesPage.jobStatusDropdown.click();
         employeesPage.jobStatusDropdownSelect.click();
-        BrowserUtilities.waitForVisibility(employeesPage.jobStatusDropdownAfterSelect,10);
+        BrowserUtilities.waitForVisibility(employeesPage.jobStatusDropdownAfterSelect, 10);
 
         employeesPage.workAddressDropdown.click();
         employeesPage.workAddressDropdownSelect.click();
@@ -152,34 +148,23 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
 
         employeesPage.managerDropdown.click();
         employeesPage.managerDropdownSelect.click();
-       // employeesPage.managerDropdownSelect.sendKeys(Keys.ENTER);
-      //  wait.until(ExpectedConditions.textToBePresentInElement(employeesPage.managerDropdownSelect, "Ashley Presley"));
-        System.out.println(employeesPage.managerDropdownSelect.getText());
+        wait.until(ExpectedConditions.attributeContains(employeesPage.managerDropdownSelect,"id","ui-id"));
 
+        employeesPage.coachDropdown.click();
+        employeesPage.coachDropdownSelect.click();
 
-        //wait.until(ExpectedConditions.attributeContains(employeesPage.coachDropdown,"class","o_input_dropdown"));
-        //employeesPage.coachDropdown.click();
-        //wait.until(ExpectedConditions.attributeContains(employeesPage.coachDropdown,"class","o_input_dropdown"));
-
-      //  BrowserUtilities.waitForVisibility(employeesPage.coachDropdownSelect,10);
-       // employeesPage.coachDropdownSelect.click();
-       // employeesPage.coachDropdownSelect.click();
-       // employeesPage.coachDropdownSelect.sendKeys(Keys.ENTER);
-
-
-
-
-        /*h
+        employeesPage.workingHoursDropdown.click();
+        employeesPage.workingHoursDropdownSelect.click();
 
         employeesPage.workLocation.sendKeys(faker.address().cityName());
 
-         */
+        employeesPage.workEmail.sendKeys(faker.internet().emailAddress());
 
+        employeesPage.mobilePhone.sendKeys(faker.phoneNumber().cellPhone());
 
+        employeesPage.workPhone.sendKeys(faker.phoneNumber().phoneNumber());
 
-
-
-
+        employeesPage.otherInformation.sendKeys(faker.lorem().characters());
 
     }
 

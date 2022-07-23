@@ -76,25 +76,35 @@ public class EmployeesPage {
     @FindBy(xpath = "(//li[@class='ui-menu-item'][.='Ashley Presley'])[1]")
     public WebElement managerDropdownSelect;
 
-/*
-    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input'][name='work_location']")
-    public WebElement workLocation;
-
- */
-
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[6]")
     public WebElement coachDropdown;
 
-    @FindBy(xpath = "(//a[contains(text(), 'Antoine Langlais')])[2]")
+    @FindBy(xpath = "(//a[contains(text(),'Antoine Langlais')])[2]")
     public WebElement coachDropdownSelect;
 
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[7]")
     public WebElement workingHoursDropdown;
 
-    @FindBy(xpath = "//li[@class='ui-menu-item'][.='Standard 35 Hours/Week']")
+    @FindBy(xpath = "//a[contains(text(),'Standard 40 Hours/Week')]")
     public WebElement workingHoursDropdownSelect;
 
-    @FindBy(id = "o_field_input_691")
-    public WebElement ofieldinput691;
+    @FindBy(xpath = "//input[@name='work_location']")
+    public WebElement workLocation;
+
+    @FindBy(xpath = "//input[@name='work_email']")
+    public WebElement workEmail;
+
+    @FindBy(xpath = "//input[@name='mobile_phone']")
+    public WebElement mobilePhone;
+
+    @FindBy(xpath = "//input[@name='work_phone']")
+    public WebElement workPhone;
+
+    @FindBy(xpath = "//textarea[@placeholder='Other Information ...']")
+    public WebElement otherInformation;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement saveButton;
+
 
 }

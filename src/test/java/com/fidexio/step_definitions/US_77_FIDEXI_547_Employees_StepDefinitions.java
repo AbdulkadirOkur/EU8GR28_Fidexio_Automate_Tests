@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,9 +27,12 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
 
         loginPage.navigateTo_LoginPage();
+        wait.until(ExpectedConditions.urlContains("qa.fidexio.com"));
         loginPage.loginPosManagerWithConfiguration();
+        wait.until(ExpectedConditions.urlContains("web?#menu"));
         BrowserUtilities.waitForVisibility(employeesPage.employeesModuleButton, 10);
         employeesPage.employeesModuleButton.click();
+        wait.until(ExpectedConditions.urlContains("employee"));
 
     }
 
@@ -148,13 +152,31 @@ public class US_77_FIDEXI_547_Employees_StepDefinitions {
 
         employeesPage.managerDropdown.click();
         employeesPage.managerDropdownSelect.click();
-        employeesPage.managerDropdownSelect.sendKeys(Keys.ENTER);
+       // employeesPage.managerDropdownSelect.sendKeys(Keys.ENTER);
+      //  wait.until(ExpectedConditions.textToBePresentInElement(employeesPage.managerDropdownSelect, "Ashley Presley"));
+        System.out.println(employeesPage.managerDropdownSelect.getText());
 
-        employeesPage.coachDropdown.click();
-        employeesPage.coachDropdownSelect.click();
 
-        employeesPage.workingHoursDropdown.click();
-        employeesPage.workingHoursDropdownSelect.click();
+        //wait.until(ExpectedConditions.attributeContains(employeesPage.coachDropdown,"class","o_input_dropdown"));
+        //employeesPage.coachDropdown.click();
+        //wait.until(ExpectedConditions.attributeContains(employeesPage.coachDropdown,"class","o_input_dropdown"));
+
+      //  BrowserUtilities.waitForVisibility(employeesPage.coachDropdownSelect,10);
+       // employeesPage.coachDropdownSelect.click();
+       // employeesPage.coachDropdownSelect.click();
+       // employeesPage.coachDropdownSelect.sendKeys(Keys.ENTER);
+
+
+
+
+        /*h
+
+        employeesPage.workLocation.sendKeys(faker.address().cityName());
+
+         */
+
+
+
 
 
 

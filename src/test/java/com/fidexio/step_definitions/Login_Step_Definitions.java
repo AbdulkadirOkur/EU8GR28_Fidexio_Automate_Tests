@@ -4,7 +4,6 @@ import com.fidexio.pages.BasePage;
 import com.fidexio.pages.LoginPage;
 import com.fidexio.utilities.ConfigurationReader;
 import com.fidexio.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -46,6 +45,4 @@ public class Login_Step_Definitions {
     public void userIsOnTheLoggedPageOfFidexioPage() {
         loginPage.loginPosManagerWithConfiguration();
     }
-
-
 }

@@ -9,13 +9,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 public class US_77_Employees_StepDefinitions {
 
@@ -24,7 +20,7 @@ public class US_77_Employees_StepDefinitions {
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     Faker faker = new Faker();
-    String employeeName = faker.name().fullName();
+    String employeeName = "Seleny Tester";
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
     public void pos_manager_logged_in_to_the_homepage_and_clicked_on_the_employees_module() {
@@ -241,8 +237,6 @@ public class US_77_Employees_StepDefinitions {
 
         employeesPage.badgeId.sendKeys("112233445");
 
-        employeesPage.manualAttandenceCheckbox.click();
-
     }
 
     @When("Pos Manager click on the Save button")
@@ -272,14 +266,39 @@ public class US_77_Employees_StepDefinitions {
 
         wait.until(ExpectedConditions.visibilityOf(employeesPage.finalPageOfEmployee));
 
+        if (employeesPage.employeeThatICreated.isDisplayed()){
+            Assert.assertTrue(employeesPage.employeeThatICreated.isDisplayed());
+            System.out.println("Creation Successfull!");
+        }else if (!(employeesPage.employeeThatICreated.isDisplayed())){
+            employeesPage.rightArrowButton.click();
+            wait.until(ExpectedConditions.elementToBeClickable(employeesPage.rightArrowButton));
+            Assert.assertTrue(employeesPage.employeeThatICreated.isDisplayed());
+            System.out.println("Creation Successfull!");
+        }else{
+            System.err.println("Creation Failed!!!");
+            System.exit(1);
+        }
+
+        //Tried another way but i couldn't make it work... I'm keeping it anyway.
+
+        /*
         List<WebElement> allEmployeeNamesAsListOfWebElement = Driver.getDriver().findElements(By.xpath("//strong[@modifiers='{}']/span"));
 
         for (WebElement each : allEmployeeNamesAsListOfWebElement) {
 
-            String namesOfAllEmployeesInOrder = each.getText();
+            String eachId = each.getText();
 
-            boolean namesOfAllEmployeesInOrderEqualsEmployeeNameExpected = namesOfAllEmployeesInOrder.equals(employeeName);
+            if (eachId.contains(employeeName)){
+                System.out.println("Ok");
+            }else{
+                employeesPage.rightArrowButton.click();
+                wait.until(ExpectedConditions.elementToBeClickable(employeesPage.rightArrowButton));
+            }
+
+            boolean namesOfAllEmployeesInOrderEqualsEmployeeNameExpected = namesOfAllEmployeesInOrder.contains(employeeName);
             boolean namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected = !namesOfAllEmployeesInOrderEqualsEmployeeNameExpected;
+
+            System.out.println(namesOfAllEmployeesInOrderEqualsEmployeeNameExpected);
 
             if (namesOfAllEmployeesInOrderEqualsEmployeeNameExpected) {
 
@@ -319,13 +338,6 @@ public class US_77_Employees_StepDefinitions {
                 System.exit(1);
 
             }
-
-
+             */
         }
-
     }
-
-
-}
-
-

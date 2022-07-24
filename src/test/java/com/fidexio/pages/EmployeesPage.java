@@ -205,6 +205,9 @@ public class EmployeesPage {
     @FindBy(xpath = "//div[@class='o_kanban_view o_hr_employee_kanban o_kanban_ungrouped']")
     public WebElement finalPageOfEmployee;
 
+    @FindBy(xpath = "//span[.='Seleny Tester']")
+    public WebElement employeeThatICreated;
+
 
 
 }

@@ -13,7 +13,7 @@ Feature: Verify that USER can create a new Odometer
     And user clicks on the Fleet menu
     And user clicks on the Vehicles Odometer menu
 
-  @FIDEXI-551   @wip
+  @FIDEXI-551
   Scenario Outline: Verify that PosManager can create a new  Odometer with valid information
     Given user is on the Vehicles odometer page
     When user clicks the Create Button

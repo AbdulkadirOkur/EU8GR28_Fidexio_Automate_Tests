@@ -28,9 +28,9 @@ public class NavigatingVehicleContracts_StepDefinitions {
 
         try{
             basePage.moreMenu.click();
-            basePage.fleetMenu.click();
+            basePage.FleetMenu.click();
        }catch (ElementNotInteractableException e){
-            basePage.fleetMenu.click();
+            basePage.FleetMenu.click();
         }
     }
 

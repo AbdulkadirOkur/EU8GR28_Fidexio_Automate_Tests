@@ -45,5 +45,4 @@ public class Login_Step_Definitions {
     public void userIsOnTheLoggedPageOfFidexioPage() {
         loginPage.loginPosManagerWithConfiguration();
     }
-
 }

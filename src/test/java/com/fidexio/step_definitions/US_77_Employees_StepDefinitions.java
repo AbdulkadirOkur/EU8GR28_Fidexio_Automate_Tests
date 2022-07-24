@@ -10,7 +10,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -85,6 +84,7 @@ public class US_77_Employees_StepDefinitions {
     @Then("PosManager should be able to click on the Left Arrow - \\(<) button.")
     public void pos_manager_should_be_able_to_click_on_the_left_arrow_button() {
 
+        wait.until(ExpectedConditions.elementToBeClickable(employeesPage.leftArrowButton));
         Assert.assertTrue(employeesPage.leftArrowButton.isEnabled());
 
     }
@@ -100,6 +100,7 @@ public class US_77_Employees_StepDefinitions {
     @Then("Pos Manager should be able to click on the Right Arrow - \\(>) button.")
     public void pos_manager_should_be_able_to_click_on_the_right_arrow_button() {
 
+        wait.until(ExpectedConditions.elementToBeClickable(employeesPage.rightArrowButton));
         Assert.assertTrue(employeesPage.rightArrowButton.isEnabled());
 
     }
@@ -190,6 +191,7 @@ public class US_77_Employees_StepDefinitions {
 
         employeesPage.bankAccountNumber.click();
         employeesPage.createAndEditBankAccountNumber.click();
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.enterAccountNumberInput));
         employeesPage.enterAccountNumberInput.sendKeys(faker.numerify("####-####-####-####"));
         employeesPage.bankDropdown.click();
         employeesPage.bankDropdownSelect.click();
@@ -202,6 +204,7 @@ public class US_77_Employees_StepDefinitions {
         Select selectMaritalStatus = new Select(employeesPage.maritalStatusDropdown);
         selectMaritalStatus.selectByVisibleText("Single");
 
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.dateOfBirth));
         employeesPage.dateOfBirth.sendKeys("01/01/1990");
         employeesPage.saveButton.click();
         employeesPage.editButton.click();
@@ -226,9 +229,10 @@ public class US_77_Employees_StepDefinitions {
     public void pos_manager_enter_employee_credentials_at_hr_setting_tab() {
 
         employeesPage.editButton.click();
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.saveButton));
         employeesPage.hrSettingTab.click();
-        employeesPage.relatedUserDropdownSelect.sendKeys(Keys.BACK_SPACE);
 
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.medicalExamDropdown));
         employeesPage.medicalExamDropdown.sendKeys("01/07/2022");
 
         employeesPage.companVehicleInput.sendKeys("Mercedes-Benz AMG C63 S");
@@ -251,6 +255,7 @@ public class US_77_Employees_StepDefinitions {
     @Then("PosManager should be able to click on the Save button and should be able to create a new Employee id with the Employee created message")
     public void pos_manager_should_be_able_to_click_on_the_save_button_and_should_be_able_to_create_a_new_employee_id_with_the_employee_created_message() {
 
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.employeeCreatedMessage));
         Assert.assertTrue(employeesPage.employeeCreatedMessage.isDisplayed());
 
     }
@@ -265,6 +270,8 @@ public class US_77_Employees_StepDefinitions {
     @Then("PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module")
     public void pos_manager_should_be_able_to_land_on_the_employees_stage_and_should_be_able_to_see_the_created_employee_listed_after_clicking_the_employees_module() {
 
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.finalPageOfEmployee));
+
         List<WebElement> allEmployeeNamesAsListOfWebElement = Driver.getDriver().findElements(By.xpath("//strong[@modifiers='{}']/span"));
 
         for (WebElement each : allEmployeeNamesAsListOfWebElement) {
@@ -272,15 +279,12 @@ public class US_77_Employees_StepDefinitions {
             String namesOfAllEmployeesInOrder = each.getText();
 
             boolean namesOfAllEmployeesInOrderEqualsEmployeeNameExpected = namesOfAllEmployeesInOrder.equals(employeeName);
-            boolean namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected = !(namesOfAllEmployeesInOrder.equals(employeeName));
-
-            String expectedEmployeeName = null;
-            String actualEmployeeName = null;
+            boolean namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected = !namesOfAllEmployeesInOrderEqualsEmployeeNameExpected;
 
             if (namesOfAllEmployeesInOrderEqualsEmployeeNameExpected) {
 
-                actualEmployeeName = each.getText();
-                expectedEmployeeName = employeeName;
+                String actualEmployeeName = each.getText();
+                String expectedEmployeeName = employeeName;
                 Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeName, actualEmployeeName);
                 System.out.println("Employee ID creation success!!!");
                 break;
@@ -307,10 +311,12 @@ public class US_77_Employees_StepDefinitions {
 
                 }
 
-
             } else {
 
+                String actualEmployeeName = each.getText();
+                String expectedEmployeeName = employeeName;
                 Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeName, actualEmployeeName);
+                System.exit(1);
 
             }
 

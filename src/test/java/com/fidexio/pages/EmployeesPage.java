@@ -181,9 +181,6 @@ public class EmployeesPage {
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[12]")
     public WebElement relatedUserDropdown;
 
-    @FindBy(xpath = "(////a[.='Administrator']")
-    public WebElement relatedUserDropdownSelect;
-
     @FindBy(xpath = "//input[@name='medic_exam']")
     public WebElement medicalExamDropdown;
 
@@ -193,7 +190,7 @@ public class EmployeesPage {
     @FindBy(xpath = "//input[@name='vehicle_distance']")
     public WebElement vehicleDistanceInput;
 
-    @FindBy(xpath = "//input[@name'barcode']")
+    @FindBy(xpath = "//input[@name='barcode']")
     public WebElement badgeId;
 
     @FindBy(xpath = "//div[@name='manual_attendance']//input")
@@ -204,6 +201,9 @@ public class EmployeesPage {
 
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]")
     public WebElement allCreatedEmployees;
+
+    @FindBy(xpath = "//div[@class='o_kanban_view o_hr_employee_kanban o_kanban_ungrouped']")
+    public WebElement finalPageOfEmployee;
 
 
 

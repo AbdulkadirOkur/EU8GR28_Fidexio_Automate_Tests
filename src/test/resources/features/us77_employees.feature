@@ -42,7 +42,6 @@ Feature: Fidexio Employee Module Functionality
     And Pos Manager click on the Save button
     Then PosManager should be able to click on the Save button and should be able to create a new Employee id with the Employee created message
 
-    @sonson
   Scenario: TC-008 | AC #03 | Verify that the user should be able to see created employee is listed after clicking the Employees module.
     When PosManager click on Employees button
     Then PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module

@@ -1,10 +1,11 @@
 package com.fidexio.pages;
 
 import com.fidexio.utilities.Driver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import sun.jvm.hotspot.debugger.Page;
+
 
 public class InventoryPage extends BasePage{
 
@@ -14,7 +15,7 @@ public class InventoryPage extends BasePage{
 
     @FindBy (xpath = "//a[@data-menu=347]")
     public WebElement inventoryButton;
-)
+
     @FindBy(xpath = "//a[@data-action-id='521']")
     public WebElement productsButton;
 
@@ -67,10 +68,10 @@ public class InventoryPage extends BasePage{
     @FindBy (xpath = "//span[text()='Stockable Product']")
     public WebElement stockableProductText;
 
-    @FindBy (xpath = "//div[@name='list_price']")
+    @FindBy (xpath = "//div[@name='list_price']/input")
     public WebElement salesPriceBox;
 
-    @FindBy (xpath = "//div[@name='standard_price']")
+    @FindBy (xpath = "//div[@name='standard_price']/input")
     public WebElement costBox;
 
     @FindBy (xpath = "//span[@name='list_price']")
@@ -85,7 +86,7 @@ public class InventoryPage extends BasePage{
     @FindBy (xpath = "//span[@name='barcode']")
     public WebElement displayBarcode;
 
-    @FindBy (xpath = "//span[@title='Edit']")
+    @FindBy (css ="span.fa fa-pencil fa-lg pull-left o_select_file_button::before" )
     public WebElement pictureEditButton;
 
     @FindBy (xpath = "//img[@name='image_medium']")
@@ -93,6 +94,19 @@ public class InventoryPage extends BasePage{
 
     @FindBy (xpath = "//input[@class='o_searchview_input']")
     public WebElement searchBox;
+
+    @FindBy (xpath = "//span[text()='Mountain Bike']")
+    public WebElement displayNameInSearchResult;
+
+    @FindBy (xpath = "//li[text()='Product Type']")
+    public WebElement productTypeWarning;
+
+    @FindBy (xpath = "//li[text()='Name']")
+    public WebElement nameWarning;
+
+    @FindBy (xpath = "//div[@class='o_notification_title']/span")
+    public WebElement invalidFieldsWarning;
+
 
 
 

@@ -1,7 +1,7 @@
 @US_77
 Feature: Fidexio Employee Module Functionality
 
-  User Story | AC #1 | Description: As a Pos Manager, i should be able to create and edit a new employee from "Employees" module.
+  User Story | Description: As a Pos Manager, i should be able to create and edit a new employee from "Employees" module.
 
   AC #1. Verify that all buttons work as expected at the employees stage
   AC #2. Verify that the "Employee created" message appears under full profile.
@@ -45,4 +45,3 @@ Feature: Fidexio Employee Module Functionality
   Scenario: TC-008 | AC #03 | Verify that the user should be able to see created employee is listed after clicking the Employees module.
     When PosManager click on Employees button
     Then PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module
-

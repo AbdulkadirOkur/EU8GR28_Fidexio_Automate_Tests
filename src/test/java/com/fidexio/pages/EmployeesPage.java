@@ -13,6 +13,9 @@ public class EmployeesPage {
 
     }
 
+    @FindBy(xpath = "//div[@class='o_thread_title']")
+    public WebElement threadTitle;
+
     @FindBy(xpath = "//a[@data-menu-xmlid='hr.menu_hr_root']")
     public WebElement employeesModuleButton;
 
@@ -73,13 +76,13 @@ public class EmployeesPage {
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[5]")
     public WebElement managerDropdown;
 
-    @FindBy(xpath = "(//li[@class='ui-menu-item'][.='Ashley Presley'])[1]")
+    @FindBy(xpath = "(//li[@class='ui-menu-item'][.='Agustina Kemmer'])[1]")
     public WebElement managerDropdownSelect;
 
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[6]")
     public WebElement coachDropdown;
 
-    @FindBy(xpath = "(//a[contains(text(),'Antoine Langlais')])[2]")
+    @FindBy(xpath = "(//a[contains(text(),'Agustina Kemmer')])[2]")
     public WebElement coachDropdownSelect;
 
     @FindBy(xpath = "(//div[@class='o_input_dropdown'])[7]")
@@ -207,7 +210,5 @@ public class EmployeesPage {
 
     @FindBy(xpath = "//span[.='Seleny Tester']")
     public WebElement employeeThatICreated;
-
-
 
 }

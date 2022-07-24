@@ -18,8 +18,8 @@ public class US_77_Employees_StepDefinitions {
     LoginPage loginPage = new LoginPage();
     EmployeesPage employeesPage = new EmployeesPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-
     Faker faker = new Faker();
+
     String employeeName = "Seleny Tester";
 
     @Given("Pos Manager logged in to the homepage and clicked on the Employees module")
@@ -29,6 +29,7 @@ public class US_77_Employees_StepDefinitions {
         wait.until(ExpectedConditions.urlContains("qa.fidexio.com"));
         loginPage.loginPosManagerWithConfiguration();
         wait.until(ExpectedConditions.urlContains("web?#menu"));
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.threadTitle));
         BrowserUtilities.waitForVisibility(employeesPage.employeesModuleButton, 10);
         employeesPage.employeesModuleButton.click();
         wait.until(ExpectedConditions.urlContains("employee"));
@@ -224,6 +225,8 @@ public class US_77_Employees_StepDefinitions {
     @When("Pos Manager enter employee credentials at HR setting tab")
     public void pos_manager_enter_employee_credentials_at_hr_setting_tab() {
 
+        wait.until(ExpectedConditions.visibilityOf(employeesPage.editButton));
+        wait.until(ExpectedConditions.elementToBeClickable(employeesPage.editButton));
         employeesPage.editButton.click();
         wait.until(ExpectedConditions.visibilityOf(employeesPage.saveButton));
         employeesPage.hrSettingTab.click();
@@ -266,34 +269,35 @@ public class US_77_Employees_StepDefinitions {
 
         wait.until(ExpectedConditions.visibilityOf(employeesPage.finalPageOfEmployee));
 
-        if (employeesPage.employeeThatICreated.isDisplayed()){
+        if (employeesPage.employeeThatICreated.isDisplayed()) {
+
             Assert.assertTrue(employeesPage.employeeThatICreated.isDisplayed());
             System.out.println("Creation Successfull!");
-        }else if (!(employeesPage.employeeThatICreated.isDisplayed())){
+
+        } else if (!(employeesPage.employeeThatICreated.isDisplayed())) {
+
             employeesPage.rightArrowButton.click();
             wait.until(ExpectedConditions.elementToBeClickable(employeesPage.rightArrowButton));
             Assert.assertTrue(employeesPage.employeeThatICreated.isDisplayed());
             System.out.println("Creation Successfull!");
-        }else{
+
+        } else {
+
             System.err.println("Creation Failed!!!");
             System.exit(1);
+
         }
 
-        //Tried another way but i couldn't make it work... I'm keeping it anyway.
+        //I tried another way but I was not successful in this way.
+        //The value that should return true returns false, while the value that should return false returns true.
+        //I'm keeping it here just in case, maybe it will be useful in the future.
+        //Instead of the logic below, I created the simpler and easier logic above.
 
         /*
+
         List<WebElement> allEmployeeNamesAsListOfWebElement = Driver.getDriver().findElements(By.xpath("//strong[@modifiers='{}']/span"));
 
         for (WebElement each : allEmployeeNamesAsListOfWebElement) {
-
-            String eachId = each.getText();
-
-            if (eachId.contains(employeeName)){
-                System.out.println("Ok");
-            }else{
-                employeesPage.rightArrowButton.click();
-                wait.until(ExpectedConditions.elementToBeClickable(employeesPage.rightArrowButton));
-            }
 
             boolean namesOfAllEmployeesInOrderEqualsEmployeeNameExpected = namesOfAllEmployeesInOrder.contains(employeeName);
             boolean namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected = !namesOfAllEmployeesInOrderEqualsEmployeeNameExpected;
@@ -338,6 +342,8 @@ public class US_77_Employees_StepDefinitions {
                 System.exit(1);
 
             }
+
              */
-        }
+
     }
+}

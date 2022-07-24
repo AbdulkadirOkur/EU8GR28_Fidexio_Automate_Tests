@@ -9,10 +9,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class US_77_Employees_StepDefinitions {
 
@@ -261,14 +265,32 @@ public class US_77_Employees_StepDefinitions {
     @Then("PosManager should be able to land on the Employees stage and should be able to see the created employee listed after clicking the Employees module")
     public void pos_manager_should_be_able_to_land_on_the_employees_stage_and_should_be_able_to_see_the_created_employee_listed_after_clicking_the_employees_module() {
 
-        String allEmployeeNamesAstext = employeesPage.allCreatedEmployees.getText();
+        List<WebElement> allEmployeeNamesAsListOfWebElement = Driver.getDriver().findElements(By.xpath("//strong[@modifiers='{}']/span"));
 
-        if (allEmployeeNamesAstext.equals(employeeName)) {
-            String expectedEmployeeName = employeeName;
-            String actualEmployeeName = Driver.getDriver().getTitle();
-           // System.out.println("Employee created successfully!");
-        }else if (!(allEmployeeNamesAstext.contains(employeeName))){
-            System.out.println("Continue");
+        for (WebElement each : allEmployeeNamesAsListOfWebElement) {
+
+            String namesOfAllEmployeesInOrder = each.getText();
+
+            boolean namesOfAllEmployeesInOrderEqualsEmployeeNameExpected = namesOfAllEmployeesInOrder.equals(employeeName);
+            boolean namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected = !(namesOfAllEmployeesInOrder.equals(employeeName));
+
+            if (namesOfAllEmployeesInOrderEqualsEmployeeNameExpected)){
+
+                String actualEmployeeName = each.getText();
+                String expectedEmployeeName = employeeName;
+                Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeName, actualEmployeeName);
+
+            }else if (namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected) {
+
+                employeesPage.leftArrowButton.click();
+
+            } else {
+
+                System.out.println("");
+
+            }
         }
+
     }
+
 }

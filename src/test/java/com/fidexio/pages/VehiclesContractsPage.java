@@ -14,7 +14,7 @@ public class VehiclesContractsPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//button[@accesskey='c']")
+    @FindBy(xpath = "//button[contains(text(),'Create')]")
     public WebElement createButton;
 
     @FindBy (xpath = "(//div[@class='o_searchview_facet']//div)[2]")
@@ -25,8 +25,8 @@ public class VehiclesContractsPage {
 
 
 
-
-
+//button[contains(text(),'Create')]
+//button[@accesskey='c']
 
 
 

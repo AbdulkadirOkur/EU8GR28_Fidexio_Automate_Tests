@@ -274,23 +274,52 @@ public class US_77_Employees_StepDefinitions {
             boolean namesOfAllEmployeesInOrderEqualsEmployeeNameExpected = namesOfAllEmployeesInOrder.equals(employeeName);
             boolean namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected = !(namesOfAllEmployeesInOrder.equals(employeeName));
 
-            if (namesOfAllEmployeesInOrderEqualsEmployeeNameExpected)){
+            String expectedEmployeeName = null;
+            String actualEmployeeName = null;
 
-                String actualEmployeeName = each.getText();
-                String expectedEmployeeName = employeeName;
+            if (namesOfAllEmployeesInOrderEqualsEmployeeNameExpected) {
+
+                actualEmployeeName = each.getText();
+                expectedEmployeeName = employeeName;
                 Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeName, actualEmployeeName);
+                System.out.println("Employee ID creation success!!!");
+                break;
 
-            }else if (namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected) {
+            } else if (namesOfAllEmployeesInOrderNotEqualsEmployeeNameExpected) {
 
-                employeesPage.leftArrowButton.click();
+                if (employeesPage.rightArrowButton.isEnabled()) {
+
+                    employeesPage.rightArrowButton.click();
+                    String actualEmployeeNameAfterRightClick = each.getText();
+                    String expectedEmployeeNameAfterRightClick = employeeName;
+                    Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeNameAfterRightClick, actualEmployeeNameAfterRightClick);
+                    System.out.println("Employee ID creation success!!!");
+                    break;
+
+                } else if (employeesPage.leftArrowButton.isEnabled()) {
+
+                    employeesPage.leftArrowButton.click();
+                    String actualEmployeeNameAfterLeftClick = each.getText();
+                    String expectedEmployeeNameAfterLeftClick = employeeName;
+                    Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeNameAfterLeftClick, actualEmployeeNameAfterLeftClick);
+                    System.out.println("Employee ID creation success!!!");
+                    break;
+
+                }
+
 
             } else {
 
-                System.out.println("");
+                Assert.assertEquals("Employee ID creation failed!!!", expectedEmployeeName, actualEmployeeName);
 
             }
+
+
         }
 
     }
 
+
 }
+
+

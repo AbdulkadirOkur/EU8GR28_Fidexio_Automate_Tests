@@ -15,7 +15,7 @@ Feature: Create A New Vehicle Costs Feature
     And  user clicks on Vehicle Costs option
     Then Vehicle costs page should be opened
 
-  @FIDEXI-590
+  @FIDEXI-590 @smoke
   Scenario: Verify that user lands on 'Cost Detail' page after clicking 'Create' button
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option

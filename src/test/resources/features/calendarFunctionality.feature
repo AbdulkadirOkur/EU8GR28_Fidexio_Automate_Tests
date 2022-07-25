@@ -1,6 +1,7 @@
+
+
 Feature: Calendar feature
   As a Posmanager, I should be able to create and to see my meetings and events on my calendar from "Calendar" module
-
 
   Background: User in "url" page
     Given user is on the login page of fidexio page
@@ -8,12 +9,12 @@ Feature: Calendar feature
     And user enters password "posmanager"
     And user clicks to login button
 
-    @FIDEXI-621 @wip1
+    @FIDEXI-621
   Scenario:
     When User click on calendar button
     Then Verify that user lands on weekly display
 
-    @FIDEXI-622 @wip1
+    @FIDEXI-622
   Scenario:
     When User click on calendar button
     And Click on day button and verify that user  on day view

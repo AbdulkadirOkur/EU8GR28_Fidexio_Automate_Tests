@@ -8,12 +8,12 @@ Feature: Calendar feature
     And user enters password "posmanager"
     And user clicks to login button
 
-    @wa
+    @FIDEXI-621 @wip1
   Scenario:
     When User click on calendar button
     Then Verify that user lands on weekly display
 
-    @mami
+    @FIDEXI-622 @wip1
   Scenario:
     When User click on calendar button
     And Click on day button and verify that user  on day view

@@ -1,6 +1,6 @@
 Feature: Verify that USER can create new Vehicles Fuel Logs.
 
-  Background: User should be at the "url" page
+  Background: User in "url" page
     Given user is on the login page of fidexio page
     When user enters username "posmanager28@info.com"
     And user enters password "posmanager"

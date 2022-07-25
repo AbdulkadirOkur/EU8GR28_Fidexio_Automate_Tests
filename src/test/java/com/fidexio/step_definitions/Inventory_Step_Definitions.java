@@ -93,41 +93,7 @@ public class Inventory_Step_Definitions {
     }
 
 
-    @And("user clicks to product type of Service")
-    public void userClicksToProductTypeOfService() {
-        Select selectService= new Select(inventoryPage.productTypeDropdown);
-        selectService.selectByVisibleText("Service");
-    }
 
-    @Then("user sees the product type as Service")
-    public void userSeesTheProductTypeAsService() {
-        String expectedServiceProductType="Service";
-        Assert.assertEquals("Product type is not as expected!",expectedServiceProductType,inventoryPage.serviceText.getText());
-    }
-
-    @And("user clicks to product type of consumable")
-    public void userClicksToProductTypeOfConsumable() {
-        Select selectConsumableTYpe= new Select(inventoryPage.productTypeDropdown);
-        selectConsumableTYpe.selectByVisibleText("Consumable");
-    }
-
-    @Then("user sees the product type as Consumable")
-    public void userSeesTheProductTypeAsConsumable() {
-        String expectedConsumableProductType="Consumable";
-        Assert.assertEquals("Product type is not as expected!",expectedConsumableProductType,inventoryPage.consumableText.getText());
-    }
-
-    @And("user clicks to product type of Stockable Product")
-    public void userClicksToProductTypeOfStockableProduct() {
-        Select selectStockableProductType= new Select(inventoryPage.productTypeDropdown);
-        selectStockableProductType.selectByVisibleText("Stockable Product");
-    }
-
-    @Then("user sees the product type as Stockable Product")
-    public void userSeesTheProductTypeAsStockableProduct() {
-        String expectedStockableProductType="Stockable Product";
-        Assert.assertEquals("Product type is not as expected!",expectedStockableProductType,inventoryPage.stockableProductText.getText());
-    }
 
     @And("user clicks to product type of blank")
     public void userClicksToProductTypeOfBlank() {

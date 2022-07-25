@@ -1,5 +1,7 @@
+@FIDEXI-620
 Feature:Fidexio inventory feature
 
+  @FIDEXI-610
   Background: user login the aplication and go to inventory-product modul
     Given user is on the login page of fidexio page
     When user enters username "posmanager10@info.com"
@@ -9,7 +11,7 @@ Feature:Fidexio inventory feature
     And user clicks to products button
     Then user sees Products headline in middle top of the page
 
-#test passed
+  @FIDEXI-616
   Scenario Outline: user can list product with different type
     When user click to "<list type button>"
     Then user see "<product list type>" on the page as expected
@@ -20,7 +22,7 @@ Feature:Fidexio inventory feature
       | kanban           | kanban list       |
       | list             | list              |
 
- #test passed
+  @FIDEXI-611
   Scenario: user can not select the "none-blank" product type when creating a product
     When user clicks to create button
     And user clicks to product name box
@@ -30,17 +32,7 @@ Feature:Fidexio inventory feature
     And user clicks to save button
     Then user sees warning of The following fields are invalid: Product type on the rigt side of page
 
-#test passed
-  Scenario: user can select the Consumable product type when creating a product
-    When user clicks to create button
-    And user clicks to product name box
-    And user enter "Mountain Bike" of product
-    And user clicks to product type dropdown button
-    And user clicks to product type of consumable
-    And user clicks to save button
-    Then user sees the product type as Consumable
-
-#test pased
+  @FIDEXI-612
   Scenario Outline: user can select product type
     When user clicks to create button
     And user clicks to product name box
@@ -55,27 +47,7 @@ Feature:Fidexio inventory feature
       | Service           | Service              |
       | Stockable Product | Stockable Product    |
 
-#test passed
-  Scenario: user can select the Service product type when creating a product
-    When user clicks to create button
-    And user clicks to product name box
-    And user enter "Mountain Bike" of product
-    And user clicks to product type dropdown button
-    And user clicks to product type of Service
-    And user clicks to save button
-    Then user sees the product type as Service
-
-#test passed
-  Scenario: user can select the Stockable product type when creating a product
-    When user clicks to create button
-    And user clicks to product name box
-    And user enter "Mountain Bike" of product
-    And user clicks to product type dropdown button
-    And user clicks to product type of Stockable Product
-    And user clicks to save button
-    Then user sees the product type as Stockable Product
-
-#test passed
+  @FIDEXI-613
   Scenario Outline: user can set sales price or cost with positive number (decimal or integer)
     When user clicks to create button
     And user clicks to product name box
@@ -94,8 +66,7 @@ Feature:Fidexio inventory feature
       | 49.9       | 40   | $ 49.90        | $ 40.00       |
       | 0.9        | 0.5  | $ 0.90         | $ 0.50        |
 
-#test passed
-  @ww
+  @FIDEXI-617
   Scenario Outline: user can not set sales price or cost other than numeric characters
     When user clicks to create button
     And user clicks to product name box
@@ -112,7 +83,7 @@ Feature:Fidexio inventory feature
       | 100         | seventy | The following fields are invalid: |
       | ten         | five    | The following fields are invalid: |
 
-#test passed
+  @FIDEXI-614
   Scenario Outline: user can set name and barcode with any characters (alphanumeric characters)
     When user clicks to create button
     And user clicks to product name box
@@ -128,22 +99,22 @@ Feature:Fidexio inventory feature
       | BiKe123*         | 112-fr3255 *4866AS151 | BiKe123*         | 112-fr3255 *4866AS151 |
       | 123BikE mountain | 123 abc ABC /*-       | 123BikE mountain | 123 abc ABC /*-       |
 
-#test passed
+  @FIDEXI-615
   Scenario: user can not save product without name
     When user clicks to create button
     And user clicks to save button
     Then user sees warning of The following fields are invalid: Name
 
- #test passed
+  @FIDEXI-618
   Scenario: user can set product picture
     When user clicks to create button
     And user clicks to product name box
-    And user enter "Mountainbikejpg" of product
+    And user enter "Mountain Bike" of product
     And user upload product picture
     And user clicks to save button
     Then user see product picture on the product page
 
-#test passed
+  @FIDEXI-619
   Scenario Outline: user can search different type of product name and found the new product in the search result
     When user clicks to create button
     And user clicks to product name box

@@ -7,7 +7,6 @@ Feature: Fidexio Employee Module Functionality
   AC #2. Verify that the "Employee created" message appears under full profile.
   AC #3. Verify that the user should be able to see created employee is listed after clicking the Employees module.
 
-  @FIDEXI-599
   Background: Pos Manager logs into the application and clicks on the Employees module.
     Given Pos Manager logged in to the homepage and clicked on the Employees module
 

@@ -83,7 +83,6 @@ public class Inventory_Step_Definitions {
                 break;
             default:
                 actualProductType=inventoryPage.stockableProductText.getText();
-
         }
 
         Assert.assertEquals("Product type is not as expected!",selectedProductType,actualProductType);

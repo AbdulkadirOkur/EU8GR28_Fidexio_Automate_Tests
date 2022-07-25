@@ -1,18 +1,17 @@
 @FIDEXI-620
 Feature:Fidexio inventory feature
 
-  @FIDEXI-610
-  Background: user login the aplication and go to inventory-product modul
-    Given user is on the login page of fidexio page
-    When user enters username "posmanager10@info.com"
-    And user enters password "posmanager"
-    And user clicks to login button
-    And user clicks to inventory button
-    And user clicks to products button
-    Then user sees Products headline in middle top of the page
+  Background:user login the aplication and go to inventory-product modul
+   Given user is on the login page of fidexio page
+   When user enters username "posmanager10@info.com"
+   And user enters password "posmanager"
+   And user clicks to login button
+   And user clicks to inventory button
+   And user clicks to products button
+   Then user sees Products headline in middle top of the page
 
   @FIDEXI-616
-  Scenario Outline: user can list product with different type
+  Scenario Outline:user can list product with different type
     When user click to "<list type button>"
     Then user see "<product list type>" on the page as expected
     Examples:
@@ -23,7 +22,7 @@ Feature:Fidexio inventory feature
       | list             | list              |
 
   @FIDEXI-611
-  Scenario: user can not select the "none-blank" product type when creating a product
+  Scenario:user can not select the "none-blank" product type when creating a product
     When user clicks to create button
     And user clicks to product name box
     And user enter "Mountain Bike" of product
@@ -33,7 +32,7 @@ Feature:Fidexio inventory feature
     Then user sees warning of The following fields are invalid: Product type on the rigt side of page
 
   @FIDEXI-612
-  Scenario Outline: user can select product type
+  Scenario Outline:user can select product type
     When user clicks to create button
     And user clicks to product name box
     And user enter "Mountain Bike" of product
@@ -48,7 +47,7 @@ Feature:Fidexio inventory feature
       | Stockable Product | Stockable Product    |
 
   @FIDEXI-613
-  Scenario Outline: user can set sales price or cost with positive number (decimal or integer)
+  Scenario Outline:user can set sales price or cost with positive number (decimal or integer)
     When user clicks to create button
     And user clicks to product name box
     And user enter "Mountain Bike" of product
@@ -67,7 +66,7 @@ Feature:Fidexio inventory feature
       | 0.9        | 0.5  | $ 0.90         | $ 0.50        |
 
   @FIDEXI-617
-  Scenario Outline: user can not set sales price or cost other than numeric characters
+  Scenario Outline:user can not set sales price or cost other than numeric characters
     When user clicks to create button
     And user clicks to product name box
     And user enter "Mountain Bike" of product
@@ -84,7 +83,7 @@ Feature:Fidexio inventory feature
       | ten         | five    | The following fields are invalid: |
 
   @FIDEXI-614
-  Scenario Outline: user can set name and barcode with any characters (alphanumeric characters)
+  Scenario Outline:user can set name and barcode with any characters (alphanumeric characters)
     When user clicks to create button
     And user clicks to product name box
     And user enter "<name>" of product
@@ -94,19 +93,19 @@ Feature:Fidexio inventory feature
     Then user sees "<displayName>" and "<displayBarcode>" on the product page
     Examples:
       | name             | barcode               | displayName      | displayBarcode        |
-      | bike             | 112325548662151       | bike             | 112325548662151       |
-      | mountain bike    | ASDFGHJKLmnop         | mountain bike    | ASDFGHJKLmnop         |
-      | BiKe123*         | 112-fr3255 *4866AS151 | BiKe123*         | 112-fr3255 *4866AS151 |
-      | 123BikE mountain | 123 abc ABC /*-       | 123BikE mountain | 123 abc ABC /*-       |
+      | bike             | 222325548662151       | bike             | 222325548662151       |
+      | mountain bike    | ASDFGHJKLmnopq        | mountain bike    | ASDFGHJKLmnopq        |
+      | BiKe123*         | 123-fr3255 *4866AS151 | BiKe123*         | 123-fr3255 *4866AS151 |
+      | 123BikE mountain | 123 abc ABC +-*       | 123BikE mountain | 123 abc ABC +-*       |
 
   @FIDEXI-615
-  Scenario: user can not save product without name
+  Scenario:user can not save product without name
     When user clicks to create button
     And user clicks to save button
     Then user sees warning of The following fields are invalid: Name
 
   @FIDEXI-618
-  Scenario: user can set product picture
+  Scenario:user can set product picture
     When user clicks to create button
     And user clicks to product name box
     And user enter "Mountain Bike" of product
@@ -115,7 +114,7 @@ Feature:Fidexio inventory feature
     Then user see product picture on the product page
 
   @FIDEXI-619
-  Scenario Outline: user can search different type of product name and found the new product in the search result
+  Scenario Outline:user can search different type of product name and found the new product in the search result
     When user clicks to create button
     And user clicks to product name box
     And user enter "Mountain Bike" of product
@@ -124,7 +123,6 @@ Feature:Fidexio inventory feature
     And user clicks to search box
     And user enter product "<search value>" to search box
     Then user sees "<product name in search result>" on the product list
-
     Examples:
       | search value  | product name in search result |
       | MOUNTAİN BİKE | Mountain Bike                 |

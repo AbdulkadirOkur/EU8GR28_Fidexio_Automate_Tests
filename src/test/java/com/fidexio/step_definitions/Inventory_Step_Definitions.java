@@ -29,6 +29,8 @@ public class Inventory_Step_Definitions {
 
     @And("user clicks to inventory button")
     public void userClicksToInventoryButton() {
+        WebDriverWait wait= new WebDriverWait(Driver.getDriver(),3);
+        wait.until(ExpectedConditions.visibilityOf(basePage.inventoryButton));
         basePage.inventoryButton.click();
     }
 

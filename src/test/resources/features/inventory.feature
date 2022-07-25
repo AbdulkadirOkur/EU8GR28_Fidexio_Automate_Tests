@@ -98,7 +98,7 @@ Feature:Fidexio inventory feature
       | BiKe123*         | 123-fr3255 *4866AS151 | BiKe123*         | 123-fr3255 *4866AS151 |
       | 123BikE mountain | 123 abc ABC +-*       | 123BikE mountain | 123 abc ABC +-*       |
 
-  @FIDEXI-615
+  @FIDEXI-615 @smoke
   Scenario:user can not save product without name
     When user clicks to create button
     And user clicks to save button

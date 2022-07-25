@@ -35,7 +35,7 @@ public class InventoryPage extends BasePage{
     public WebElement kanbanListButton;
 
     @FindBy(xpath = "//button[@accesskey='l']")
-    public WebElement ListButton;
+    public WebElement listButton;
 
     @FindBy (xpath = "//span[@class='o_pager_value']")
     public WebElement listOrder;
@@ -86,14 +86,17 @@ public class InventoryPage extends BasePage{
     @FindBy (xpath = "//span[@name='barcode']")
     public WebElement displayBarcode;
 
-    @FindBy (css ="span.fa fa-pencil fa-lg pull-left o_select_file_button::before" )
+    @FindBy (xpath ="(//input[@class='o_input_file'])[2]" )
     public WebElement pictureEditButton;
 
     @FindBy (xpath = "//img[@name='image_medium']")
     public WebElement displayPicture;
 
-    @FindBy (xpath = "//input[@class='o_searchview_input']")
+    @FindBy (xpath = "//input[@placeholder='Search...']")
     public WebElement searchBox;
+
+    @FindBy (xpath = "//div[@class='o_searchview active']")
+    public WebElement activeSearchBox;
 
     @FindBy (xpath = "//span[text()='Mountain Bike']")
     public WebElement displayNameInSearchResult;

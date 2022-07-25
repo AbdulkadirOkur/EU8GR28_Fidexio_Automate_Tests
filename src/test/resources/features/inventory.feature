@@ -9,25 +9,18 @@ Feature:Fidexio inventory feature
     And user clicks to products button
     Then user sees Products headline in middle top of the page
 
-
-  Scenario: user can list products with "<" button
-    When user clicks to < button
-    Then user sees products on the page
-
-  Scenario: user can list products with ">" button
-    When user clicks to > button
-    Then user sees products on the page
-
-  Scenario: user can list products with "kanban" button
-
-    When user clicks to kanban button
-    Then user sees products on the page as a kanban type
-
-  Scenario: user can list products with "list" button
-
-    When user clicks to list button
-    Then user sees products on the page as a list type
 #test passed
+  Scenario Outline: user can list product with different type
+    When user click to "<list type button>"
+    Then user see "<product list type>" on the page as expected
+    Examples:
+      | list type button | product list type |
+      | previous         | previous list     |
+      | next             | next list         |
+      | kanban           | kanban list       |
+      | list             | list              |
+
+ #test passed
   Scenario: user can not select the "none-blank" product type when creating a product
     When user clicks to create button
     And user clicks to product name box
@@ -36,6 +29,7 @@ Feature:Fidexio inventory feature
     And user clicks to product type of blank
     And user clicks to save button
     Then user sees warning of The following fields are invalid: Product type on the rigt side of page
+
 #test passed
   Scenario: user can select the Consumable product type when creating a product
     When user clicks to create button
@@ -46,6 +40,7 @@ Feature:Fidexio inventory feature
     And user clicks to save button
     Then user sees the product type as Consumable
 
+#test pased
   Scenario Outline: user can select product type
     When user clicks to create button
     And user clicks to product name box
@@ -54,26 +49,27 @@ Feature:Fidexio inventory feature
     And user select to one of "<product type>"
     And user clicks to save button
     Then user see the "<product type on page>"
-
     Examples:
       | product type      | product type on page |
       | Consumable        | Consumable           |
       | Service           | Service              |
       | Stockable Product | Stockable Product    |
+
 #test passed
   Scenario: user can select the Service product type when creating a product
     When user clicks to create button
     And user clicks to product name box
-    And user enter "name" of product
+    And user enter "Mountain Bike" of product
     And user clicks to product type dropdown button
     And user clicks to product type of Service
     And user clicks to save button
     Then user sees the product type as Service
+
 #test passed
   Scenario: user can select the Stockable product type when creating a product
     When user clicks to create button
     And user clicks to product name box
-    And user enter "name" of product
+    And user enter "Mountain Bike" of product
     And user clicks to product type dropdown button
     And user clicks to product type of Stockable Product
     And user clicks to save button
@@ -83,14 +79,13 @@ Feature:Fidexio inventory feature
   Scenario Outline: user can set sales price or cost with positive number (decimal or integer)
     When user clicks to create button
     And user clicks to product name box
-    And user enter "name" of product
+    And user enter "Mountain Bike" of product
     And user clicks sales price box
     And user input sales price "<salesPrice>"
     And user click cost box
     And user set cost "<cost>"
     And user clicks to save button
     Then user sees sales price as "<displayedPrice>" and cost as "<displayedCost>"
-
     Examples:
       | salesPrice | cost | displayedPrice | displayedCost |
       | 50         | 30   | $ 50.00        | $ 30.00       |
@@ -98,23 +93,25 @@ Feature:Fidexio inventory feature
       | 99.9       | 70.5 | $ 99.90        | $ 70.50       |
       | 49.9       | 40   | $ 49.90        | $ 40.00       |
       | 0.9        | 0.5  | $ 0.90         | $ 0.50        |
+
 #test passed
+  @ww
   Scenario Outline: user can not set sales price or cost other than numeric characters
     When user clicks to create button
     And user clicks to product name box
-    And user enter "name" of product
+    And user enter "Mountain Bike" of product
     And user clicks sales price box
     And user set salesprice "<sales price>"
     And user click cost box
     And user setcost "<cost>"
     And user clicks to save button
     Then user sees "<warning>" The following fields are invalid: Sales Price or/and Cost
-
     Examples:
       | sales price | cost    | warning                           |
       | one hundred | 70      | The following fields are invalid: |
       | 100         | seventy | The following fields are invalid: |
       | ten         | five    | The following fields are invalid: |
+
 #test passed
   Scenario Outline: user can set name and barcode with any characters (alphanumeric characters)
     When user clicks to create button
@@ -137,20 +134,20 @@ Feature:Fidexio inventory feature
     And user clicks to save button
     Then user sees warning of The following fields are invalid: Name
 
-  @pup
+ #test passed
   Scenario: user can set product picture
     When user clicks to create button
     And user clicks to product name box
-    And user enter "<name>" of product
-    And user clicks to set product picture edit icon
+    And user enter "Mountainbikejpg" of product
     And user upload product picture
     And user clicks to save button
     Then user see product picture on the product page
 
+#test passed
   Scenario Outline: user can search different type of product name and found the new product in the search result
     When user clicks to create button
     And user clicks to product name box
-    And user enter "name" of product
+    And user enter "Mountain Bike" of product
     And user clicks to save button
     And user clicks to products button
     And user clicks to search box
@@ -161,9 +158,9 @@ Feature:Fidexio inventory feature
       | search value  | product name in search result |
       | MOUNTAİN BİKE | Mountain Bike                 |
       | mountain bike | Mountain Bike                 |
-      | mountain      | Mountain Bike                 |
+      | MouNtain      | Mountain Bike                 |
       | Bike          | Mountain Bike                 |
-      | BIKE          | Mountain Bike                 |
+      | BiKe          | Mountain Bike                 |
 
 
 

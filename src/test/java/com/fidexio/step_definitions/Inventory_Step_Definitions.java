@@ -8,9 +8,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 
@@ -18,6 +24,7 @@ public class Inventory_Step_Definitions {
     LoginPage loginPage = new LoginPage();
     BasePage basePage = new BasePage();
     InventoryPage inventoryPage= new InventoryPage();
+
 
 
     @And("user clicks to inventory button")
@@ -64,22 +71,20 @@ public class Inventory_Step_Definitions {
 
     @Then("user see the {string}")
     public void userSeeThe(String selectedProductType) {
-        String expectedProductType=selectedProductType;
         String actualProductType="";
+        switch (selectedProductType){
+            case "Consumable":
+                actualProductType=inventoryPage.consumableText.getText();
+                break;
+            case "Service":
+                actualProductType=inventoryPage.serviceText.getText();
+                break;
+            default:
+                actualProductType=inventoryPage.stockableProductText.getText();
 
-        if (selectedProductType=="Consumable"){
-
-            actualProductType=inventoryPage.consumableText.getText();
-
-        } else if (selectedProductType=="Service"){
-
-            actualProductType=inventoryPage.serviceText.getText();
-        } else {
-
-            actualProductType=inventoryPage.stockableProductText.getText();
         }
 
-        Assert.assertEquals("Product type is not as expected!",expectedProductType,actualProductType);
+        Assert.assertEquals("Product type is not as expected!",selectedProductType,actualProductType);
     }
 
     @And ("user clicks to save button")
@@ -245,6 +250,60 @@ public class Inventory_Step_Definitions {
 
     @And("user clicks to search box")
     public void userClicksToSearchBox() {
+        WebDriverWait wait= new WebDriverWait(Driver.getDriver(),3);
+        wait.until(ExpectedConditions.visibilityOf(inventoryPage.activeSearchBox));
         inventoryPage.searchBox.click();
     }
+
+    @And("user enter product {string} to search box")
+    public void userEnterProductToSearchBox(String searchName) {
+        inventoryPage.searchBox.sendKeys(searchName);
+        inventoryPage.searchBox.sendKeys(Keys.ENTER);
+    }
+
+    @Then("user sees {string} on the product list")
+    public void userSeesOnTheProductList(String searchResultName) {
+        String expectedSearchResult="Mountain Bike";
+        String actualSearchResult=inventoryPage.displayNameInSearchResult.getText();
+        Assert.assertEquals("Search result is not display as expected!)",expectedSearchResult,actualSearchResult);
+    }
+
+    @When("user click to {string}")
+    public void userClickTo(String listTypeButton) {
+
+        switch (listTypeButton){
+            case "previous":
+                inventoryPage.previousListButton.click();
+                break;
+            case "next" :
+                inventoryPage.nextListButton.click();
+                break;
+            case "kanban":
+                inventoryPage.kanbanListButton.click();
+                break;
+            default:
+                inventoryPage.listButton.click();
+        }
+
+    }
+
+    @Then("user see {string} on the page as expected")
+    public void userSeeOnThePageAsExpected(String listType) {
+        Boolean expectedListTypeDisplay=true;
+        Boolean actualListTypeDisplay=false;
+
+        switch (listType){
+            case "previous list" : case "next list":
+                actualListTypeDisplay=inventoryPage.listOrder.isDisplayed();
+            break;
+            case "kanban list":
+                actualListTypeDisplay=inventoryPage.displayKanbanList.isDisplayed();
+                break;
+            default:
+                actualListTypeDisplay=inventoryPage.displayListType.isDisplayed();
+        }
+
+        Assert.assertEquals("Display list type is not as expected", expectedListTypeDisplay,actualListTypeDisplay);
+
+      }
 }

@@ -25,7 +25,7 @@ public class InventoryPage extends BasePage{
     @FindBy (xpath = "//button[contains(text(),'Create')]")
     public WebElement createButton;
 
-@FindBy(xpath = "//button[@accesskey='p']")
+    @FindBy(xpath = "//button[@accesskey='p']")
     public WebElement previousListButton;
 
     @FindBy(xpath = "//button[@accesskey='n']")
@@ -51,7 +51,6 @@ public class InventoryPage extends BasePage{
 
     @FindBy (xpath = "//span[@name='name']")
     public WebElement displayName;
-
 
     @FindBy (xpath = "//select[@name='type']")
     public WebElement productTypeDropdown;

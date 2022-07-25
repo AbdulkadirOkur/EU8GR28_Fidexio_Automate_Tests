@@ -10,7 +10,7 @@ Feature: Fidexio Sales Manager functionality
     And user clicks Sales module button
     And user should be able to see Customers button on left and click
 
-  @FIDEXI-555
+  @FIDEXI-555 @smoke
   Scenario: "Create" button works as expected at the Customer design stage verification
     When user clicks on Create button
     Then user sees the title as New Odoo

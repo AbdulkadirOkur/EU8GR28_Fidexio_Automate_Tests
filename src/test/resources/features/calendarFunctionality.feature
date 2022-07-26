@@ -1,5 +1,3 @@
-
-
 Feature: Calendar feature
   As a Posmanager, I should be able to create and to see my meetings and events on my calendar from "Calendar" module
 

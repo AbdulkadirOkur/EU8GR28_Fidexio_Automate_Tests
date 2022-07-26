@@ -19,23 +19,23 @@ Feature: Create A New Vehicle Costs Feature
   Scenario: Verify that user lands on 'Cost Detail' page after clicking 'Create' button
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     Then user should land on Cost Details page
 
   @FIDEXI-591
   Scenario:  Verify that any vehicle can be selected below 'Vehicle' dropdown.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  user clicks on Vehicle dropdown
     And  user selects a Vehicle from the dropdown option
     Then the vehicle should be selected
 
-  @FIDEXI-592
+  @FIDEXI-592 @wip
   Scenario: Verify that a vehicle can be selected below 'Type' dropdown.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  user selects a Type from the TypeDropdown option
     Then the type should be selected
 
@@ -43,7 +43,7 @@ Feature: Create A New Vehicle Costs Feature
   Scenario Outline: Verify that user able to input numeric characters into the 'Total Price' field.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  user clicks on Vehicle dropdown
     And  user selects a Vehicle from the dropdown option
     And  user selects a Type from the TypeDropdown option
@@ -57,12 +57,12 @@ Feature: Create A New Vehicle Costs Feature
       | 123456789          |
       | 10,000.00          |
 
-  @FIDEXI-594
+  @FIDEXI-594 @wip
   Scenario Outline: Verify that "The following fields are invalid" is displayed after typing non numeric
   characters into 'Total Price' field and saving.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  User enters "<non-numeric characters>" into the Total Price field
     Then The following fields are invalid should be displayed
     Examples:
@@ -77,7 +77,7 @@ Feature: Create A New Vehicle Costs Feature
   Scenario:  Verify that 'Date' calendar dropdown is opened and any date can be selected.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  user clicks any Date from the calendar
     Then user should click option for Date
 
@@ -85,7 +85,7 @@ Feature: Create A New Vehicle Costs Feature
   Scenario: Verify that user should be able to input any character on cost descriptions field.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  user inputs any character on cost descriptions field
     Then User should input any character on cost descriptions field
 
@@ -93,7 +93,7 @@ Feature: Create A New Vehicle Costs Feature
   Scenario Outline: Verify that user should be able to save new vehicle costs.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
-    And  user clicks on Create button
+    And  as a posmanager25 user clicks on Create button
     And  user clicks on Vehicle dropdown
     And  user selects a Vehicle from the dropdown option
     And  user selects a Type from the TypeDropdown option

@@ -63,8 +63,8 @@ public class Vehicle_Costs_Step_Definitions {
         BrowserUtilities.verifyTitle(vehicleCostsPageTitle);
     }
 
-    @When("user clicks on Create button")
-    public void user_clicks_on_create_button() {
+    @When("as a posmanager25 user clicks on Create button")
+    public void as_a_posmanager25_user_clicks_on_create_button() {
         BrowserUtilities.waitForVisibility(vehicleCostsPage.vehiclesCosts,15);
         fleetPage.createButton.click();
     }

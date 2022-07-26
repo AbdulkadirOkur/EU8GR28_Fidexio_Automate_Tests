@@ -31,7 +31,7 @@ Feature: Create A New Vehicle Costs Feature
     And  user selects a Vehicle from the dropdown option
     Then the vehicle should be selected
 
-  @FIDEXI-592 @wip
+  @FIDEXI-592
   Scenario: Verify that a vehicle can be selected below 'Type' dropdown.
     When user clicks on Fleet option
     And  user clicks on Vehicle Costs option
@@ -57,7 +57,7 @@ Feature: Create A New Vehicle Costs Feature
       | 123456789          |
       | 10,000.00          |
 
-  @FIDEXI-594 @wip
+  @FIDEXI-594
   Scenario Outline: Verify that "The following fields are invalid" is displayed after typing non numeric
   characters into 'Total Price' field and saving.
     When user clicks on Fleet option

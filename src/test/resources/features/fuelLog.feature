@@ -11,7 +11,7 @@ Feature: Verify that USER can create new Vehicles Fuel Logs.
     And user clicks Create Button
 
 
-
+  @FIDEXI-628
   Scenario Outline:Verify that PosManager can Create a new Vehicles Fuel Log with valid information
     When user enters Vehicle "<Vehicle>"
     And user enters Odometer Value <Odometer Value>
@@ -32,11 +32,11 @@ Feature: Verify that USER can create new Vehicles Fuel Logs.
       | Bmw/520ES/01adana01 | 125            | 7.2   | 50              | 04/15/2022 | &*&*)_( (copy), jhgfdghjkhgg | 254asdasd         | ACD (copy)       |
 
 
-  @smoke
-    Scenario: Verifying crate button work as expected
-      When user enters Vehicle "Bmw/520ES/01adana01"
-      And user clicks Save button on fuelLog page
-      Then user sees vehicle added to page "Bmw/520ES/01adana01"
+  @smoke @FIDEXI-629
+  Scenario: Verifying crate button work as expected
+    When user enters Vehicle "Bmw/520ES/01adana01"
+    And user clicks Save button on fuelLog page
+    Then user sees vehicle added to page "Bmw/520ES/01adana01"
 
 
 

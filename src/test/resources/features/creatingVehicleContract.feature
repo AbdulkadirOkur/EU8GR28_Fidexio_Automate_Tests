@@ -16,14 +16,14 @@ Feature: Fleet / Vehicles / Create A New Vehicle Contracts Function
     When user clicks the Vehicle dropdown
     Then Vehicle dropdown opens
 
-  @FIDEXI-577 @smoke
+  @FIDEXI-577 
   Scenario: Verify that PosManager should be able to select and see the option as choosen one from the 'Vehicle' dropdown.
     When user clicks the Vehicle dropdown
     And user selects the Opel-Astra-1-ACK-205 option
     And user clicks the save button
     Then Opel-Astra-1-ACK-205 can be seen as choosen vehicle
 
-  @FIDEXI-578
+  @FIDEXI-578 @smoke
   Scenario:Verify that 'Type' dropdown opens
     When user clicks the Type dropdown
     Then Type dropdown opens

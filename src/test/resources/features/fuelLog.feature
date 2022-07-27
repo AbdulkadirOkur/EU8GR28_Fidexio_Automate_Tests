@@ -21,17 +21,22 @@ Feature: Verify that USER can create new Vehicles Fuel Logs.
     And user enters Purchaser "<Purchaser>"
     And user enters Invoice Reference "<Invoice Reference>"
     And user enters Vendor "<Vendor>"
-    And user clicks Save button
+    And user clicks Save button on fuelLog page
     Then user sees "<Vehicle>" <Odometer Value> <Liter> <Price Per Liter> "<Date>" "<Purchaser>" "<Invoice Reference>" "<Vendor>" saved same as input
 
     Examples:
-      | Vehicle                    | Odometer Value | Liter | Price Per Liter | Date       | Purchaser                    | Invoice Reference | Vendor           |
-      | Mercedes/Class A/1-MER-001 | 100            | 7     | 30              | 07/15/2022 | CamptocamP, Phillipp Miller  | 1a2b3c            | @#$%&ga          |
-      | Bmw/Serie 1/1-BMW-001      | 120            | 8     | 30              | 06/15/2022 | &*&*)_( (copy), uyyufhg      | asdasd            | &*&*)_(, 7854422 |
-      | Opel/Corsa/1-SYN-404       | 100            | 7     | 45              | 05/15/2022 | &*&*)_(, AAAA VA             | 987987            | @#$%&            |
-      | Ford/Ranger/2022/337       | 125            | 7.2   | 50              | 04/15/2022 | &*&*)_( (copy), jhgfdghjkhgg | 254asdasd         | ACD (copy)       |
+      | Vehicle             | Odometer Value | Liter | Price Per Liter | Date       | Purchaser                    | Invoice Reference | Vendor           |
+      | Bmw/520ES/01adana01 | 100            | 7     | 30              | 07/15/2022 | CamptocamP, Phillipp Miller  | 1a2b3c            | @#$%&ga          |
+      | Bmw/520ES/01adana01 | 120            | 8     | 30              | 06/15/2022 | &*&*)_( (copy), uyyufhg      | asdasd            | &*&*)_(, 7854422 |
+      | Bmw/520ES/01adana01 | 100            | 7     | 45              | 05/15/2022 | &*&*)_(, AAAA VA             | 987987            | @#$%&            |
+      | Bmw/520ES/01adana01 | 125            | 7.2   | 50              | 04/15/2022 | &*&*)_( (copy), jhgfdghjkhgg | 254asdasd         | ACD (copy)       |
 
 
+  @smoke
+    Scenario: Verifying crate button work as expected
+      When user enters Vehicle "Bmw/520ES/01adana01"
+      And user clicks Save button on fuelLog page
+      Then user sees vehicle added to page "Bmw/520ES/01adana01"
 
 
 

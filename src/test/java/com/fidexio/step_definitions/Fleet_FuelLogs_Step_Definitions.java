@@ -41,7 +41,7 @@ public class Fleet_FuelLogs_Step_Definitions {
     }
 
 
-    @And("user clicks Save button")
+    @And("user clicks Save button on fuelLog page")
     public void userClicksSaveButton() {
         vehicles_fuel_logs_page.saveButton.click();
     }
@@ -139,6 +139,13 @@ public class Fleet_FuelLogs_Step_Definitions {
         Assert.assertEquals(vendorExpected, vendorActual);
 
 
+    }
+
+
+
+    @Then("user sees vehicle added to page {string}")
+    public void userSeesVehicleAddedToPage(String str) {
+        Assert.assertEquals(str,vehicles_fuel_logs_page.vehicleDropdown_AfterSaved.getText());
     }
 }
 

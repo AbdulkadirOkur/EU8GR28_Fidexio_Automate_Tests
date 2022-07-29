@@ -34,9 +34,9 @@ Feature: Verify that USER can create new Vehicles Fuel Logs.
 
   @smoke @FIDEXI-629
   Scenario: Verifying crate button work as expected
-    When user enters Vehicle "Bmw/520ES/01adana01"
+    When user clicks first Vehicle
     And user clicks Save button on fuelLog page
-    Then user sees vehicle added to page "Bmw/520ES/01adana01"
+    Then user sees first vehicle added to page
 
 
 

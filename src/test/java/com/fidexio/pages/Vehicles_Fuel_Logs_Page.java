@@ -40,6 +40,9 @@ public class Vehicles_Fuel_Logs_Page extends BasePage {
     @FindBy(xpath = "//button[@accesskey='s']")
     public WebElement saveButton;
 
+    @FindBy(xpath = "(//li[@class='ui-menu-item'])[1]")
+    public WebElement vehicleDropdownFirstCar;
+
     public WebElement vehicleListGetter(String vehicleName){
         String locator = "//a[.='"+vehicleName+"']";
         return Driver.getDriver().findElement(By.xpath(locator));

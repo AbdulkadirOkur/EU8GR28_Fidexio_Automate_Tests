@@ -142,10 +142,20 @@ public class Fleet_FuelLogs_Step_Definitions {
     }
 
 
+    //store the value which is first vehicle text as a string.
+    String vehicleNameBeforeSave;
+    @When("user clicks first Vehicle")
+    public void userClicksFirstVehicle() {
 
-    @Then("user sees vehicle added to page {string}")
-    public void userSeesVehicleAddedToPage(String str) {
-        Assert.assertEquals(str,vehicles_fuel_logs_page.vehicleDropdown_AfterSaved.getText());
+        vehicles_fuel_logs_page.vehicleDropdown.click();
+        vehicleNameBeforeSave =vehicles_fuel_logs_page.vehicleDropdownFirstCar.getText();
+        vehicles_fuel_logs_page.vehicleDropdownFirstCar.click();
+
+    }
+
+    @Then("user sees first vehicle added to page")
+    public void userSeesFirstVehicleAddedToPage() {
+        Assert.assertEquals(vehicleNameBeforeSave,vehicles_fuel_logs_page.vehicleDropdown_AfterSaved.getText());
     }
 }
 
